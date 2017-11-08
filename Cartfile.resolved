@@ -1,0 +1,3 @@
+git "git@git.quanti.cz:git/base_ios.git" "9003bcafef9560e72b3da5e5a340e3b26e7c7eaa"
+git "git@git.quanti.cz:git/quanti_logger_ios.git" "v1.8"
+github "SnapKit/SnapKit" "3.2.0"

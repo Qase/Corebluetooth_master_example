@@ -1,0 +1,9 @@
+# Snapkit
+github "SnapKit/SnapKit" ~> 3.2.0
+
+# QuantiLogger
+git "git@git.quanti.cz:git/quanti_logger_ios.git" ~> 1.1
+
+# QuantiBase
+git "git@git.quanti.cz:git/base_ios.git" "master"
+
