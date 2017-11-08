@@ -1,0 +1,9 @@
+{
+  "commitish" : "9003bcafef9560e72b3da5e5a340e3b26e7c7eaa",
+  "iOS" : [
+    {
+      "name" : "QuantiBase",
+      "hash" : "2a3e7d9b73edf7e108dd8ab2f8363a11759a45225cf794d51044a2c9ce07b99c"
+    }
+  ]
+}

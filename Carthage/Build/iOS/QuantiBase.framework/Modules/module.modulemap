@@ -1,0 +1,11 @@
+framework module QuantiBase {
+  umbrella header "QuantiBase.h"
+
+  export *
+  module * { export * }
+}
+
+module QuantiBase.Swift {
+    header "QuantiBase-Swift.h"
+    requires objc
+}
