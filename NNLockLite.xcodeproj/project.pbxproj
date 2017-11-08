@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE021FB363840087CB58 /* AppDelegate.swift */; };
+		5561BE051FB363840087CB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE041FB363840087CB58 /* ViewController.swift */; };
+		5561BE081FB363840087CB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE061FB363840087CB58 /* Main.storyboard */; };
+		5561BE0A1FB363840087CB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE091FB363840087CB58 /* Assets.xcassets */; };
+		5561BE0D1FB363840087CB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */; };
+		5561BE181FB363840087CB58 /* NNLockLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE171FB363840087CB58 /* NNLockLiteTests.swift */; };
+		5561BE231FB363840087CB58 /* NNLockLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5561BE141FB363840087CB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5561BDF71FB363840087CB58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5561BDFE1FB363840087CB58;
+			remoteInfo = NNLockLite;
+		};
+		5561BE1F1FB363840087CB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5561BDF71FB363840087CB58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5561BDFE1FB363840087CB58;
+			remoteInfo = NNLockLite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5561BDFF1FB363840087CB58 /* NNLockLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNLockLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BE021FB363840087CB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5561BE041FB363840087CB58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5561BE071FB363840087CB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5561BE091FB363840087CB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5561BE0C1FB363840087CB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5561BE0E1FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NNLockLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BE171FB363840087CB58 /* NNLockLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLockLiteTests.swift; sourceTree = "<group>"; };
+		5561BE191FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NNLockLiteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLockLiteUITests.swift; sourceTree = "<group>"; };
+		5561BE241FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5561BDFC1FB363840087CB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE101FB363840087CB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE1B1FB363840087CB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5561BDF61FB363840087CB58 = {
+			isa = PBXGroup;
+			children = (
+				5561BE011FB363840087CB58 /* NNLockLite */,
+				5561BE161FB363840087CB58 /* NNLockLiteTests */,
+				5561BE211FB363840087CB58 /* NNLockLiteUITests */,
+				5561BE001FB363840087CB58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5561BE001FB363840087CB58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5561BDFF1FB363840087CB58 /* NNLockLite.app */,
+				5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */,
+				5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5561BE011FB363840087CB58 /* NNLockLite */ = {
+			isa = PBXGroup;
+			children = (
+				5561BE021FB363840087CB58 /* AppDelegate.swift */,
+				5561BE041FB363840087CB58 /* ViewController.swift */,
+				5561BE061FB363840087CB58 /* Main.storyboard */,
+				5561BE091FB363840087CB58 /* Assets.xcassets */,
+				5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */,
+				5561BE0E1FB363840087CB58 /* Info.plist */,
+			);
+			path = NNLockLite;
+			sourceTree = "<group>";
+		};
+		5561BE161FB363840087CB58 /* NNLockLiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				5561BE171FB363840087CB58 /* NNLockLiteTests.swift */,
+				5561BE191FB363840087CB58 /* Info.plist */,
+			);
+			path = NNLockLiteTests;
+			sourceTree = "<group>";
+		};
+		5561BE211FB363840087CB58 /* NNLockLiteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */,
+				5561BE241FB363840087CB58 /* Info.plist */,
+			);
+			path = NNLockLiteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5561BDFE1FB363840087CB58 /* NNLockLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLite" */;
+			buildPhases = (
+				5561BDFB1FB363840087CB58 /* Sources */,
+				5561BDFC1FB363840087CB58 /* Frameworks */,
+				5561BDFD1FB363840087CB58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NNLockLite;
+			productName = NNLockLite;
+			productReference = 5561BDFF1FB363840087CB58 /* NNLockLite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5561BE121FB363840087CB58 /* NNLockLiteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteTests" */;
+			buildPhases = (
+				5561BE0F1FB363840087CB58 /* Sources */,
+				5561BE101FB363840087CB58 /* Frameworks */,
+				5561BE111FB363840087CB58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5561BE151FB363840087CB58 /* PBXTargetDependency */,
+			);
+			name = NNLockLiteTests;
+			productName = NNLockLiteTests;
+			productReference = 5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5561BE1D1FB363840087CB58 /* NNLockLiteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteUITests" */;
+			buildPhases = (
+				5561BE1A1FB363840087CB58 /* Sources */,
+				5561BE1B1FB363840087CB58 /* Frameworks */,
+				5561BE1C1FB363840087CB58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5561BE201FB363840087CB58 /* PBXTargetDependency */,
+			);
+			name = NNLockLiteUITests;
+			productName = NNLockLiteUITests;
+			productReference = 5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5561BDF71FB363840087CB58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Quanti;
+				TargetAttributes = {
+					5561BDFE1FB363840087CB58 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					5561BE121FB363840087CB58 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5561BDFE1FB363840087CB58;
+					};
+					5561BE1D1FB363840087CB58 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5561BDFE1FB363840087CB58;
+					};
+				};
+			};
+			buildConfigurationList = 5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "NNLockLite" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5561BDF61FB363840087CB58;
+			productRefGroup = 5561BE001FB363840087CB58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5561BDFE1FB363840087CB58 /* NNLockLite */,
+				5561BE121FB363840087CB58 /* NNLockLiteTests */,
+				5561BE1D1FB363840087CB58 /* NNLockLiteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5561BDFD1FB363840087CB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5561BE0D1FB363840087CB58 /* LaunchScreen.storyboard in Resources */,
+				5561BE0A1FB363840087CB58 /* Assets.xcassets in Resources */,
+				5561BE081FB363840087CB58 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE111FB363840087CB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE1C1FB363840087CB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5561BDFB1FB363840087CB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5561BE051FB363840087CB58 /* ViewController.swift in Sources */,
+				5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE0F1FB363840087CB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5561BE181FB363840087CB58 /* NNLockLiteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5561BE1A1FB363840087CB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5561BE231FB363840087CB58 /* NNLockLiteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5561BE151FB363840087CB58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5561BDFE1FB363840087CB58 /* NNLockLite */;
+			targetProxy = 5561BE141FB363840087CB58 /* PBXContainerItemProxy */;
+		};
+		5561BE201FB363840087CB58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5561BDFE1FB363840087CB58 /* NNLockLite */;
+			targetProxy = 5561BE1F1FB363840087CB58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5561BE061FB363840087CB58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5561BE071FB363840087CB58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5561BE0C1FB363840087CB58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5561BE251FB363840087CB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5561BE261FB363840087CB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5561BE281FB363840087CB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5561BE291FB363840087CB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5561BE2B1FB363840087CB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLiteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NNLockLite.app/NNLockLite";
+			};
+			name = Debug;
+		};
+		5561BE2C1FB363840087CB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLiteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NNLockLite.app/NNLockLite";
+			};
+			name = Release;
+		};
+		5561BE2E1FB363840087CB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLiteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NNLockLite;
+			};
+			name = Debug;
+		};
+		5561BE2F1FB363840087CB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				INFOPLIST_FILE = NNLockLiteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NNLockLite;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "NNLockLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5561BE251FB363840087CB58 /* Debug */,
+				5561BE261FB363840087CB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5561BE281FB363840087CB58 /* Debug */,
+				5561BE291FB363840087CB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5561BE2B1FB363840087CB58 /* Debug */,
+				5561BE2C1FB363840087CB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5561BE2E1FB363840087CB58 /* Debug */,
+				5561BE2F1FB363840087CB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5561BDF71FB363840087CB58 /* Project object */;
+}
