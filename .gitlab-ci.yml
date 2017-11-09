@@ -1,0 +1,47 @@
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+before_script:
+  - "~/unlock_ci_keychain.sh"
+  - "gem update fastlane"
+  - fastlane update_profiles
+
+stages:
+  - build
+  - crashlytics
+  - night_build
+
+build_job:
+  stage: build
+  script:
+    - fastlane build_application scheme:appstore
+  tags:
+    - xcode-9
+
+crashlytics_job:
+  stage: crashlytics
+  script:
+    - fastlane update_profiles
+    - fastlane build_application scheme:adhoc
+    - fastlane upload_crashlytics
+  when: manual
+  tags:
+    - xcode-9
+  environment:
+    name: crashlitics
+
+crashlytics_night_build_job:
+  stage: night_build
+  script:
+    - fastlane update_profiles
+    - fastlane build_application scheme:adhoc
+    - fastlane upload_crashlytics
+
+  tags:
+    - xcode-9
+  environment:
+    name: crashlitics
+  only:
+    - schedules
+    - triggers
