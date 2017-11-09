@@ -52,5 +52,6 @@ testflight_job:
     - fastlane update_profiles readonly:true
     - fastlane build_application scheme:appstore
     - fastlane deploy_pilot
+  when: manual
   tags:
     - xcode-9
