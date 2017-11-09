@@ -10,6 +10,7 @@ before_script:
 stages:
   - build
   - crashlytics
+  - testflight
   - night_build
 
 build_job:
@@ -22,7 +23,7 @@ build_job:
 crashlytics_job:
   stage: crashlytics
   script:
-    - fastlane update_profiles
+    - fastlane update_profiles readonly:true
     - fastlane build_application scheme:adhoc
     - fastlane upload_crashlytics
   when: manual
@@ -34,10 +35,9 @@ crashlytics_job:
 crashlytics_night_build_job:
   stage: night_build
   script:
-    - fastlane update_profiles
+    - fastlane update_profiles readonly:true
     - fastlane build_application scheme:adhoc
     - fastlane upload_crashlytics
-
   tags:
     - xcode-9
   environment:
@@ -45,3 +45,12 @@ crashlytics_night_build_job:
   only:
     - schedules
     - triggers
+
+testflight_job:
+  stage: testflight
+  script:
+    - fastlane update_profiles readonly:true
+    - fastlane build_application scheme:appstore
+    - fastlane deploy_pilot
+  tags:
+    - xcode-9
