@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518EC431FB47AF200219B72 /* BluetoothManager.swift */; };
+		5518EC461FB47C2300219B72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518EC451FB47C2300219B72 /* Constants.swift */; };
+		554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B17FD1FB49C3A0081B2C3 /* Device.swift */; };
+		554B18001FB4B3460081B2C3 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B17FF1FB4B3460081B2C3 /* DeviceManager.swift */; };
+		554B18041FB5B0ED0081B2C3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 554B18011FB5AE250081B2C3 /* Model.xcdatamodeld */; };
+		554B18061FB5B2F80081B2C3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B18051FB5B2F80081B2C3 /* CoreDataStack.swift */; };
+		554B180C1FB5E0B70081B2C3 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B180B1FB5E0B70081B2C3 /* DeviceTableViewCell.swift */; };
 		5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE021FB363840087CB58 /* AppDelegate.swift */; };
 		5561BE051FB363840087CB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE041FB363840087CB58 /* ViewController.swift */; };
-		5561BE081FB363840087CB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE061FB363840087CB58 /* Main.storyboard */; };
 		5561BE0A1FB363840087CB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE091FB363840087CB58 /* Assets.xcassets */; };
 		5561BE0D1FB363840087CB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */; };
 		5561BE181FB363840087CB58 /* NNLockLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE171FB363840087CB58 /* NNLockLiteTests.swift */; };
@@ -56,10 +62,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5518EC431FB47AF200219B72 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		5518EC451FB47C2300219B72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		554B17FD1FB49C3A0081B2C3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		554B17FF1FB4B3460081B2C3 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		554B18021FB5AE250081B2C3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		554B18051FB5B2F80081B2C3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		554B180B1FB5E0B70081B2C3 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		5561BDFF1FB363840087CB58 /* NNLockLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNLockLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5561BE021FB363840087CB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5561BE041FB363840087CB58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5561BE071FB363840087CB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5561BE091FB363840087CB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5561BE0C1FB363840087CB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5561BE0E1FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +114,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		554B18071FB5DC520081B2C3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				554B18011FB5AE250081B2C3 /* Model.xcdatamodeld */,
+				554B17FD1FB49C3A0081B2C3 /* Device.swift */,
+				554B18051FB5B2F80081B2C3 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		554B18081FB5DC710081B2C3 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				5518EC431FB47AF200219B72 /* BluetoothManager.swift */,
+				554B17FF1FB4B3460081B2C3 /* DeviceManager.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		554B18091FB5DC850081B2C3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */,
+				5561BE041FB363840087CB58 /* ViewController.swift */,
+				554B180B1FB5E0B70081B2C3 /* DeviceTableViewCell.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		554B180A1FB5DCA40081B2C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5561BE0E1FB363840087CB58 /* Info.plist */,
+				5561BE091FB363840087CB58 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5561BDF61FB363840087CB58 = {
 			isa = PBXGroup;
 			children = (
@@ -128,12 +178,12 @@
 		5561BE011FB363840087CB58 /* NNLockLite */ = {
 			isa = PBXGroup;
 			children = (
+				554B18081FB5DC710081B2C3 /* Bluetooth */,
+				554B18071FB5DC520081B2C3 /* CoreData */,
+				554B18091FB5DC850081B2C3 /* Screens */,
+				554B180A1FB5DCA40081B2C3 /* Supporting Files */,
 				5561BE021FB363840087CB58 /* AppDelegate.swift */,
-				5561BE041FB363840087CB58 /* ViewController.swift */,
-				5561BE061FB363840087CB58 /* Main.storyboard */,
-				5561BE091FB363840087CB58 /* Assets.xcassets */,
-				5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */,
-				5561BE0E1FB363840087CB58 /* Info.plist */,
+				5518EC451FB47C2300219B72 /* Constants.swift */,
 			);
 			path = NNLockLite;
 			sourceTree = "<group>";
@@ -227,6 +277,11 @@
 					5561BDFE1FB363840087CB58 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					5561BE121FB363840087CB58 = {
 						CreatedOnToolsVersion = 9.1;
@@ -267,7 +322,6 @@
 			files = (
 				5561BE0D1FB363840087CB58 /* LaunchScreen.storyboard in Resources */,
 				5561BE0A1FB363840087CB58 /* Assets.xcassets in Resources */,
-				5561BE081FB363840087CB58 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +363,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5561BE051FB363840087CB58 /* ViewController.swift in Sources */,
+				554B18001FB4B3460081B2C3 /* DeviceManager.swift in Sources */,
+				5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */,
+				554B18041FB5B0ED0081B2C3 /* Model.xcdatamodeld in Sources */,
+				554B180C1FB5E0B70081B2C3 /* DeviceTableViewCell.swift in Sources */,
+				554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */,
 				5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */,
+				5518EC461FB47C2300219B72 /* Constants.swift in Sources */,
+				554B18061FB5B2F80081B2C3 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,14 +406,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5561BE061FB363840087CB58 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5561BE071FB363840087CB58 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -483,6 +536,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NNLockLite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,6 +560,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NNLockLite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,6 +677,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		554B18011FB5AE250081B2C3 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				554B18021FB5AE250081B2C3 /* Model.xcdatamodel */,
+			);
+			currentVersion = 554B18021FB5AE250081B2C3 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5561BDF71FB363840087CB58 /* Project object */;
 }
