@@ -15,6 +15,7 @@ class DeviceTableViewCell: UITableViewCell {
     var uuidLabel = UILabel()
     var infoLabel = UILabel()
     var flagLabel = UILabel()
+    var statusLabel = UILabel()
     
     var entry: Device? {
         didSet {
@@ -22,6 +23,22 @@ class DeviceTableViewCell: UITableViewCell {
             self.uuidLabel.text = entry?.identifier
             self.infoLabel.text = "RSSI: \(entry?.rssi ?? 999) (\(entry?.lastScanDate?.toFullDateTimeString() ?? ""))"
             self.flagLabel.text = "Flags: \(entry?.flagString ?? "")"
+            
+            var statusText = ""
+            if entry?.touchRequired ?? false, entry?.isInPairing ?? false {
+                statusText = "Supports background, in pairing"
+                self.statusLabel.textColor = .red
+            } else if entry?.touchRequired ?? false {
+                statusText = "Supports background"
+                self.statusLabel.textColor = .darkGreen
+            } else {
+                statusText = "Only foreground"
+                self.statusLabel.textColor = .gray
+            }
+            
+            
+            
+            self.statusLabel.text = "Status: \(statusText)"
         }
     }
     
@@ -41,7 +58,7 @@ class DeviceTableViewCell: UITableViewCell {
         uuidLabel.font = UIFont.boldSystemFont(ofSize: 11)
         
         // Create Stack View
-        let mainStackView = UIStackView(arrangedSubviews: [nameLabel,uuidLabel,infoLabel, flagLabel])
+        let mainStackView = UIStackView(arrangedSubviews: [nameLabel, uuidLabel, infoLabel, flagLabel, statusLabel])
         mainStackView.axis = .vertical
         mainStackView.alignment = .fill
         mainStackView.distribution = .fill

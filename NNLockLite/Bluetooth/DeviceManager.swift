@@ -107,7 +107,7 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
         cancelBackgroundTask()
     }
     
-    func disconnectFromPeripheral(centralManager: CBCentralManager){
+    func disconnectFromPeripheral(centralManager: CBCentralManager) {
         QLog("DeviceManager (\(device.name ?? "")) disconnectFromPeripheral", onLevel: .info)
         centralManager.cancelPeripheralConnection(peripheral)
     }

@@ -12,7 +12,7 @@ import QuantiBase
 import CoreData
 import QuantiLogger
 
-class ViewController: QBaseTableViewController {
+class ViewController: UITableViewController {
 
     lazy var fetchResultController: NSFetchedResultsController<Device> = {
         let fetchController = CoreDataStack.shared.devicesFetchedResultsController()
@@ -23,10 +23,11 @@ class ViewController: QBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
         self.title = "2N Lock Lite"
         
         self.tableView.register(DeviceTableViewCell.self, forCellReuseIdentifier: Constants.TableCells.deviceCell)
+        self.tableView.estimatedRowHeight = 310
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         do {
             try fetchResultController.performFetch()
@@ -58,13 +59,13 @@ extension ViewController {
         return myCell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        guard let myCell = cell as? DeviceTableViewCell else {
-//            return
-//        }
-//
-//        myCell.entry = fetchResultController.object(at: indexPath)
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+////        guard let myCell = cell as? DeviceTableViewCell else {
+////            return
+////        }
+////
+////        myCell.entry = fetchResultController.object(at: indexPath)
+//    }
 }
 
 // MARK: - NSFetchedResultsControllerDelegate methods

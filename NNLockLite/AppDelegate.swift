@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Draw controller
         window = UIWindow(frame: UIScreen.main.bounds)
         if let _window = window {
-            _window.rootViewController = UINavigationController(rootViewController: ViewController())
+            _window.rootViewController = BaseNavigationViewController(rootViewController: ViewController())
             _window.makeKeyAndVisible()
         }
         
@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             // Enable or disable features based on authorization.
         }
+        
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = textAttributes
 
         return true
     }

@@ -141,6 +141,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         QLog("ScanManager centralManager willRestoreState", onLevel: .info)
         restoreDevices()
+        requestBackgroundConnections()
     }
 }
 

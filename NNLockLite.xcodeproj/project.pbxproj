@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55054A9A1FB9F957001EB915 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054A991FB9F957001EB915 /* AppTheme.swift */; };
+		55054A9C1FBA0384001EB915 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */; };
 		5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518EC431FB47AF200219B72 /* BluetoothManager.swift */; };
 		5518EC461FB47C2300219B72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518EC451FB47C2300219B72 /* Constants.swift */; };
 		554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B17FD1FB49C3A0081B2C3 /* Device.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55054A991FB9F957001EB915 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		5518EC431FB47AF200219B72 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		5518EC451FB47C2300219B72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		554B17FD1FB49C3A0081B2C3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */,
 				5561BE041FB363840087CB58 /* ViewController.swift */,
 				554B180B1FB5E0B70081B2C3 /* DeviceTableViewCell.swift */,
+				55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				554B18091FB5DC850081B2C3 /* Screens */,
 				554B180A1FB5DCA40081B2C3 /* Supporting Files */,
 				5561BE021FB363840087CB58 /* AppDelegate.swift */,
+				55054A991FB9F957001EB915 /* AppTheme.swift */,
 				5518EC451FB47C2300219B72 /* Constants.swift */,
 			);
 			path = NNLockLite;
@@ -369,8 +375,10 @@
 				554B180C1FB5E0B70081B2C3 /* DeviceTableViewCell.swift in Sources */,
 				554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */,
 				5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */,
+				55054A9C1FBA0384001EB915 /* BaseNavigationController.swift in Sources */,
 				5518EC461FB47C2300219B72 /* Constants.swift in Sources */,
 				554B18061FB5B2F80081B2C3 /* CoreDataStack.swift in Sources */,
+				55054A9A1FB9F957001EB915 /* AppTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
