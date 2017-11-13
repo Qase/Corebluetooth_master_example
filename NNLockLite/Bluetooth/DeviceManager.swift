@@ -9,10 +9,15 @@
 import UIKit
 import CoreBluetooth
 import QuantiLogger
+import UserNotifications
 
 public class DeviceManager: NSObject, CBPeripheralDelegate {
     public let device: Device
     public let peripheral: CBPeripheral
+    
+    public var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    public var connectTask: DispatchWorkItem?
+    
     
     init(peripheral: CBPeripheral) {
         self.peripheral = peripheral
@@ -29,24 +34,87 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
         self.peripheral.delegate = self
     }
     
-    func connectedToPeripheral()
+    func connectedToPeripheral(centralManager: CBCentralManager)
     {
+        QLog("DeviceManager (\(device.name ?? "")) connectedToPeripheral ", onLevel: .info)
+        
+        
+        // Post notification about sucesfull connection
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
+        notificationContent.title = "Connected To \(device.name ?? "")"
+        notificationContent.subtitle = "\(Date())"
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: nil) //"com.quanti.bluetooth.connect"
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            QLog("DeviceManager (\(self.device.name ?? "")) UNUserNotificationCenter add \(String(describing: error))", onLevel: .info)
+        }
+    }
+    
+    func disconectedFromPeripheral(centralManager: CBCentralManager)
+    {
+        QLog("DeviceManager (\(device.name ?? "")) disconectedFromPeripheral", onLevel: .info)
+
+        //Recreate connection request in lock was disconnected (only on background)
+        let shouldReconnectAfterDisconection = device.touchRequired && (BluetoothManager.applicationIsInBackground)
+        guard shouldReconnectAfterDisconection else {
+            QLog("DeviceManager (\(device.name ?? "")) no not reconnect", onLevel: .info)
+            return
+        }
+        
+        //Create background task just in case we would not manage to request connection before application des
+        cancelBackgroundTask()
+        backgroundTask = UIApplication.shared.beginBackgroundTask (expirationHandler: {
+            QLog("DeviceManager (\(self.device.name ?? "")) expirationHandler", onLevel: .debug)
+            UIApplication.shared.endBackgroundTask(self.backgroundTask)
+        })
+
+        // Dispatch new connection after 5, because otherwise we would connect multiple times during one click
+//        QLog("DeviceManager (\(device.name ?? "")) request new connect after 5 sec", onLevel: .info)
+//        self.connectTask?.cancel()
+//        let connectTask = DispatchWorkItem {
+//            self.connectToPeripheral(centralManager: centralManager, onBackground: UIApplication.shared.applicationState == .background)
+//        }
+//        self.connectTask = connectTask
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: connectTask)
+        
+        // Well maybe try to connect immediately
+        QLog("DeviceManager (\(device.name ?? "")) request new connect", onLevel: .info)
+        if device.isInPairing {
+                QLog("DeviceManager (\(device.name ?? "")) device is in pairing", onLevel: .warn)
+        }
+        
+        self.connectToPeripheral(centralManager: centralManager, onBackground: BluetoothManager.applicationIsInBackground)
         
     }
     
-    func disconectedFromPeripheral()
-    {
+    func connectToPeripheral(centralManager: CBCentralManager, onBackground: Bool = false) {
         
-    }
-    
-    func connectToPeripheral(centralManager: CBCentralManager){
-        QLog("connectToPeripheral \(device.name ?? "")", onLevel: .info)
+        // Discard background connect requests, that are not for Devices in touch mode
+        if !device.touchRequired && onBackground {
+            QLog("DeviceManager (\(device.name ?? "")) connectToPeripheral NOT performed onBackground \(onBackground)", onLevel: .info)
+            cancelBackgroundTask()
+            return
+        }
+        
+        // Request connect to device
+        QLog("DeviceManager (\(device.name ?? "")) connectToPeripheral onBackground: \(onBackground) peripheralUUID: \(self.peripheral.identifier.uuidString)", onLevel: .info)
         centralManager.connect(peripheral, options: nil)
+        QLog("DeviceManager (\(device.name ?? "")) connectToPeripheral after", onLevel: .info)
+        
+        // We requested bluetooth connection, so we can end background task (if created).
+        cancelBackgroundTask()
     }
     
     func disconnectFromPeripheral(centralManager: CBCentralManager){
-        QLog("disconnectFromPeripheral \(device.name ?? "")", onLevel: .info)
+        QLog("DeviceManager (\(device.name ?? "")) disconnectFromPeripheral", onLevel: .info)
         centralManager.cancelPeripheralConnection(peripheral)
+    }
+    
+    func cancelBackgroundTask() {
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskInvalid
     }
     
 }

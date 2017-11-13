@@ -23,6 +23,8 @@ public class BluetoothManager: NSObject {
     
     var devices: [DeviceManager] = []
     
+    static var applicationIsInBackground: Bool = false
+    
     public override init()
     {
         super.init()
@@ -30,10 +32,6 @@ public class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
         registerNotifications()
         restoreDevices()
-    }
-    
-    @objc func appMovedToBackground() {
-        print("App moved to background!")
     }
     
     func restoreDevices(){
@@ -74,7 +72,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     private func stopScanner(){
-        if !centralManager.isScanning{
+        if !centralManager.isScanning {
             return
         }
         centralManager.stopScan()
@@ -102,7 +100,25 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        centralManager.cancelPeripheralConnection(peripheral)
+        guard let deviceManager = devices.first(where: { (deviceManager) -> Bool in deviceManager.device.identifierUUID == peripheral.identifier }) else {
+            QLog("BluetoothManager didConnect to Unknown device", onLevel: .error)
+            centralManager.cancelPeripheralConnection(peripheral)
+            return
+        }
+        deviceManager.connectedToPeripheral(centralManager: centralManager)
+    }
+    
+    public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        
+    }
+    
+    public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        guard let deviceManager = devices.first(where: { (deviceManager) -> Bool in deviceManager.device.identifierUUID == peripheral.identifier }) else {
+            QLog("BluetoothManager didConnect to Unknown device", onLevel: .error)
+            centralManager.cancelPeripheralConnection(peripheral)
+            return
+        }
+        deviceManager.disconectedFromPeripheral(centralManager: centralManager)
     }
     
     
@@ -142,21 +158,27 @@ extension BluetoothManager {
             deviceManager.device.touchRequired
         }
         
+        QLog("Requesting connection to \(touchDevices.count) devices", onLevel: .info)
         touchDevices.forEach { (deviceManager) in
-            
+            deviceManager.connectToPeripheral(centralManager: centralManager, onBackground: true)
         }
     }
     
-    func stopBackgroundconnections() {
-        
+    func stopBackgroundConnections() {
+        QLog("Cancel connection to all devices", onLevel: .info)
+        devices.forEach { (deviceManager) in
+            centralManager.cancelPeripheralConnection(deviceManager.peripheral)
+        }
     }
     
     @objc func applicationWillEnterForeground() {
+        type(of: self).applicationIsInBackground = false
         startScanner()
-        stopBackgroundconnections()
+        stopBackgroundConnections()
     }
     
     @objc func applicationDidEnterBackground() {
+        type(of: self).applicationIsInBackground = true
         stopScanner()
         requestBackgroundConnections()
     }
