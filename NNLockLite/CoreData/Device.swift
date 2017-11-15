@@ -64,7 +64,7 @@ import CoreData
         return UUID(uuidString: identifier)
     }
     
-    func updateFrom(_ advertisementData: Data?) {
+    func updateFrom(_ advertisementData: Data?, rssi:NSNumber = 0) {
         
         guard let advertisementData = advertisementData, advertisementData.count >= 6 else {
             return
@@ -73,6 +73,7 @@ import CoreData
         var distanceByte: UInt8 = 0
         (advertisementData as NSData).getBytes(&distanceByte, range: NSRange(location: 2, length: 1))
         distanceTreshold = (Int32(-30 + (Int(distanceByte & 0x1F) * -3)))
+        self.rssi = Int32(truncating: rssi)
         
         var flagsByte: UInt8 = 0
         (advertisementData as NSData).getBytes(&flagsByte, range: NSRange(location: 3, length: 1))

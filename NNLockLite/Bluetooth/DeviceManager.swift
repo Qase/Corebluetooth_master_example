@@ -21,7 +21,15 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
     
     init(peripheral: CBPeripheral) {
         self.peripheral = peripheral
-        self.device = Device(context: CoreDataStack.shared.persistentContainerContext)
+        
+        
+        if let device = CoreDataStack.shared.deviceWith(uuidString: peripheral.identifier.uuidString) {
+            self.device = device
+        }
+        else {
+            self.device = Device(context: CoreDataStack.shared.persistentContainerContext)
+        }
+        
         super.init()
         self.device.identifier = peripheral.identifier.uuidString
         self.peripheral.delegate = self

@@ -92,6 +92,19 @@ extension CoreDataStack {
         return fetchController
     }
     
+    func deviceWith(uuidString: String) -> Device? {
+        let fetchRequest: NSFetchRequest<Device> = Device.orderedFetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "identifier=%@", uuidString)
+        fetchRequest.fetchLimit = 1
+        guard let results = fetch(with: fetchRequest) else {
+            return nil
+        }
+        
+        return results.first
+        
+        
+    }
+    
     func getAllDevices() -> [Device] {
         let fetchRequest: NSFetchRequest<Device> = Device.orderedFetchRequest()
         

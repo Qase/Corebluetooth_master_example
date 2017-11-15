@@ -16,16 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var timer: Timer?
     
-    private let bluetoothManager = BluetoothManager()
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
+    public static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    public let bluetoothManager:BluetoothManager = {
         
         
         LogManager.shared.shouldPerformAsync = false
         let systemLogger = SystemLogger(subsystem: "com.quanti.swift.NNLockLite", category: "logging")
         systemLogger.levels = [.verbose, .info, .debug, .warn, .error]
         LogManager.shared.add(systemLogger)
+        
+        return BluetoothManager()
+    }()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
             if UIApplication.shared.applicationState == .background {
@@ -36,7 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Draw controller
         window = UIWindow(frame: UIScreen.main.bounds)
         if let _window = window {
-            _window.rootViewController = BaseNavigationViewController(rootViewController: ViewController())
+            let controller = ViewController()
+            bluetoothManager.delegate = controller
+            _window.rootViewController = BaseNavigationViewController(rootViewController: controller)
             _window.makeKeyAndVisible()
         }
         

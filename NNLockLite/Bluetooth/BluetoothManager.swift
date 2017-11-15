@@ -27,6 +27,7 @@ public class BluetoothManager: NSObject {
     
     public override init()
     {
+        QLog("ScanManager init", onLevel: .info)
         super.init()
         let options: [String: Any] = [CBCentralManagerOptionRestoreIdentifierKey: Constants.Bluetooth.Identifiers.RestoreIdentifierKey, CBCentralManagerOptionShowPowerAlertKey: false]
         centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
@@ -95,7 +96,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
         //QLog("ScanManager centralManagerdidDiscover \(peripheralName) data: \(advertisementData) rssi: \(RSSI)", onLevel: .info)
         let peripheralName = peripheral.name ?? "no-name"
         let deviceManager = self.deviceManagerFor(peripheral)
-        deviceManager.device.updateFrom(advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data)
+        deviceManager.device.updateFrom(advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data, rssi: RSSI)
         deviceManager.device.name = peripheralName
     }
     
@@ -109,6 +110,13 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        guard let deviceManager = devices.first(where: { (deviceManager) -> Bool in deviceManager.device.identifierUUID == peripheral.identifier }) else {
+            QLog("BluetoothManager didFailToConnect to Unknown device", onLevel: .error)
+            return
+        }
+
+        QLog("BluetoothManager didFailToConnect to \(deviceManager.device.name ?? "")", onLevel: .error)
+        deviceManager.connectToPeripheral(centralManager: centralManager)
         
     }
     
@@ -121,9 +129,13 @@ extension BluetoothManager: CBCentralManagerDelegate {
         deviceManager.disconectedFromPeripheral(centralManager: centralManager)
     }
     
+    public var centralState:CBManagerState {
+        return centralManager.state
+    }
+    
     
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        QLog("ScanManager \(centralManagerDidUpdateState)", onLevel: .info)
+        QLog("ScanManager centralManagerDidUpdateState", onLevel: .info)
         switch central.state {
         case .poweredOff:
             QLog("BLE status: Powered Off", onLevel: .info)
