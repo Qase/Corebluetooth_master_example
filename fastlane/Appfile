@@ -1,4 +1,4 @@
-app_identifier "cz.quanti.BLE-Lock-Master" # The bundle identifier of your app
+app_identifier "com.quanti.swift.NNLockLite" # The bundle identifier of your app
 apple_id "ios@quanti.cz" # Your Apple email address
 
 team_id "97DXWGRCGZ" # Developer Portal Team ID
