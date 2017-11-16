@@ -12,6 +12,7 @@ import QuantiBase
 import CoreData
 import QuantiLogger
 import CoreBluetooth
+import MessageUI
 
 class ViewController: UIViewController {
 
@@ -54,6 +55,10 @@ class ViewController: UIViewController {
         }
         noDevicesLabel.text = "No Devices found"
         noDevicesLabel.textAlignment = .center
+        
+        
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send logs", style: UIBarButtonItemStyle.plain, target: self, action: #selector(sendLogs))
         
         
         
@@ -108,6 +113,21 @@ class ViewController: UIViewController {
         noDevicesLabel.isHidden = controllerHasResults
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @objc func sendLogs()  {
+        if !MFMailComposeViewController.canSendMail() {
+            return
+        }
+        
+        let receipient = "ios@quanti.cz"
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.red
+        let mailController = LogFilesViaMailViewController(withRecipients: [receipient])
+        mailController.mailComposeDelegate = self
+        mailController.navigationBar.tintColor = UIColor.white
+        self.present(mailController, animated: true, completion: nil)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -120,6 +140,14 @@ class ViewController: UIViewController {
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
+}
+
+extension ViewController: MFMailComposeViewControllerDelegate {
+    
+    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
 }
 
 // MARK: - TableViewDelegate

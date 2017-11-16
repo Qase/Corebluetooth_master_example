@@ -27,9 +27,9 @@ public class BluetoothManager: NSObject {
     
     public override init()
     {
-        QLog("ScanManager init", onLevel: .info)
+        QLog("BluetoothManager init", onLevel: .info)
         super.init()
-        let options: [String: Any] = [CBCentralManagerOptionRestoreIdentifierKey: Constants.Bluetooth.Identifiers.RestoreIdentifierKey, CBCentralManagerOptionShowPowerAlertKey: false]
+        let options: [String: Any] = [CBCentralManagerOptionRestoreIdentifierKey: Constants.Bluetooth.Identifiers.RestoreIdentifierKey]
         centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
         registerNotifications()
         restoreDevices()
@@ -135,7 +135,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        QLog("ScanManager centralManagerDidUpdateState", onLevel: .info)
+        QLog("BluetoothManager centralManagerDidUpdateState", onLevel: .info)
         switch central.state {
         case .poweredOff:
             QLog("BLE status: Powered Off", onLevel: .info)
@@ -151,7 +151,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-        QLog("ScanManager centralManager willRestoreState", onLevel: .info)
+        QLog("BluetoothManager centralManager willRestoreState", onLevel: .info)
         restoreDevices()
         requestBackgroundConnections()
     }

@@ -15,24 +15,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var timer: Timer?
+    public var bluetoothManager:BluetoothManager!
     
     public static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
-    public let bluetoothManager:BluetoothManager = {
-        
-        
+    public static func prepareLogger() {
         LogManager.shared.shouldPerformAsync = false
         let systemLogger = SystemLogger(subsystem: "com.quanti.swift.NNLockLite", category: "logging")
         systemLogger.levels = [.verbose, .info, .debug, .warn, .error]
+
+        let fileLogger = FileLogger()
+        fileLogger.levels = [.verbose, .info, .debug, .warn, .error]
+
         LogManager.shared.add(systemLogger)
-        
-        return BluetoothManager()
-    }()
+        LogManager.shared.add(fileLogger)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        AppDelegate.prepareLogger()
+        
         QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
+        
+        if let centrals = launchOptions?[UIApplicationLaunchOptionsKey.bluetoothCentrals]{
+            QLog("AppDelegate didFinishLaunchingWithOptions bluetoothCentrals \(centrals)", onLevel: .info)
+        }
+        
+        
+        
+        bluetoothManager = BluetoothManager()
+        
+        
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
             if UIApplication.shared.applicationState == .background {

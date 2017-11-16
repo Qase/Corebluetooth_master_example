@@ -41,16 +41,6 @@ import CoreData
         return string
     }
     
-//    public override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-//        super.init(entity: entity, insertInto: context)
-//    }
-//
-//    public init(identifier: String, context: NSManagedObjectContext) {
-//        super.init(entity: NSEntityDescription.entity(forEntityName: "Device", in: context)!, insertInto: context)
-//        self.identifier = identifier
-//    }
-    
-    
     static func orderedFetchRequest() -> NSFetchRequest<Device> {
         let fetchRequest: NSFetchRequest<Device> = Device.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true), NSSortDescriptor(key: "identifier", ascending: true)]

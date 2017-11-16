@@ -58,6 +58,8 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
         UNUserNotificationCenter.current().add(request) { (error) in
             QLog("DeviceManager (\(self.device.name ?? "")) UNUserNotificationCenter add \(String(describing: error))", onLevel: .info)
         }
+        
+        //disconnectFromPeripheral(centralManager: centralManager)
     }
     
     func disconectedFromPeripheral(centralManager: CBCentralManager)
