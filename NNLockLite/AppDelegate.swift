@@ -38,8 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
         
+        
+        
         if let centrals = launchOptions?[UIApplicationLaunchOptionsKey.bluetoothCentrals]{
+            NotificationService.shared.presentNotificationWith(text: "App Launched - Restoring State")
             QLog("AppDelegate didFinishLaunchingWithOptions bluetoothCentrals \(centrals)", onLevel: .info)
+        }
+        else {
+            NotificationService.shared.presentNotificationWith(text: "App Launched")
         }
         
         
@@ -84,6 +90,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         QLog("AppDelegate applicationDidEnterBackground", onLevel: .info)
         CoreDataStack.shared.saveContext()
+        
+//        DispatchQueue.main.async {
+//            kill(getpid(), SIGKILL);
+//        }
+        
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }

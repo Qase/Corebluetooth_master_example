@@ -29,8 +29,7 @@ public class BluetoothManager: NSObject {
     {
         QLog("BluetoothManager init", onLevel: .info)
         super.init()
-        let options: [String: Any] = [CBCentralManagerOptionRestoreIdentifierKey: Constants.Bluetooth.Identifiers.RestoreIdentifierKey]
-        centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
+        centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionRestoreIdentifierKey: Constants.Bluetooth.Identifiers.RestoreIdentifierKey])
         registerNotifications()
         restoreDevices()
     }
@@ -110,6 +109,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        NotificationService.shared.presentNotificationWith(text: "didFailToConnect")
         guard let deviceManager = devices.first(where: { (deviceManager) -> Bool in deviceManager.device.identifierUUID == peripheral.identifier }) else {
             QLog("BluetoothManager didFailToConnect to Unknown device", onLevel: .error)
             return
@@ -122,8 +122,8 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         guard let deviceManager = devices.first(where: { (deviceManager) -> Bool in deviceManager.device.identifierUUID == peripheral.identifier }) else {
-            QLog("BluetoothManager didConnect to Unknown device", onLevel: .error)
-            centralManager.cancelPeripheralConnection(peripheral)
+            QLog("BluetoothManager didDisconnect to Unknown device", onLevel: .error)
+            NotificationService.shared.presentNotificationWith(text: "Disconnected From Unknown")
             return
         }
         deviceManager.disconectedFromPeripheral(centralManager: centralManager)
@@ -153,7 +153,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         QLog("BluetoothManager centralManager willRestoreState", onLevel: .info)
         restoreDevices()
-        requestBackgroundConnections()
+        //requestBackgroundConnections()
     }
 }
 
@@ -187,7 +187,7 @@ extension BluetoothManager {
     @objc func applicationWillEnterForeground() {
         type(of: self).applicationIsInBackground = false
         startScanner()
-        stopBackgroundConnections()
+        //stopBackgroundConnections()
     }
     
     @objc func applicationDidEnterBackground() {

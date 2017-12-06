@@ -28,6 +28,7 @@
 		5561BE361FB36D020087CB58 /* QuantiLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE341FB36D010087CB58 /* QuantiLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5561BE381FB36D190087CB58 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE371FB36D190087CB58 /* SnapKit.framework */; };
 		5561BE391FB36D190087CB58 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE371FB36D190087CB58 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55E090F81FD82D5E0039E43C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E090F71FD82D5E0039E43C /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		5561BE301FB36CF30087CB58 /* QuantiBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuantiBase.framework; path = Carthage/Build/iOS/QuantiBase.framework; sourceTree = "<group>"; };
 		5561BE341FB36D010087CB58 /* QuantiLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuantiLogger.framework; path = Carthage/Build/iOS/QuantiLogger.framework; sourceTree = "<group>"; };
 		5561BE371FB36D190087CB58 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		55E090F71FD82D5E0039E43C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				5518EC431FB47AF200219B72 /* BluetoothManager.swift */,
 				554B17FF1FB4B3460081B2C3 /* DeviceManager.swift */,
+				55E090F71FD82D5E0039E43C /* NotificationService.swift */,
 			);
 			path = Bluetooth;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				554B18001FB4B3460081B2C3 /* DeviceManager.swift in Sources */,
 				5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */,
 				554B18041FB5B0ED0081B2C3 /* Model.xcdatamodeld in Sources */,
+				55E090F81FD82D5E0039E43C /* NotificationService.swift in Sources */,
 				554B180C1FB5E0B70081B2C3 /* DeviceTableViewCell.swift in Sources */,
 				554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */,
 				5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */,

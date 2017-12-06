@@ -48,32 +48,25 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
         
         
         // Post notification about sucesfull connection
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
-        notificationContent.title = "Connected To \(device.name ?? "")"
-        notificationContent.subtitle = "\(Date())"
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: nil) //"com.quanti.bluetooth.connect"
-        
-        UNUserNotificationCenter.current().add(request) { (error) in
-            QLog("DeviceManager (\(self.device.name ?? "")) UNUserNotificationCenter add \(String(describing: error))", onLevel: .info)
-        }
+        NotificationService.shared.presentNotificationWith(text: "Connected To \(device.name ?? "")")
         
         //disconnectFromPeripheral(centralManager: centralManager)
     }
     
     func disconectedFromPeripheral(centralManager: CBCentralManager)
     {
-        QLog("DeviceManager (\(device.name ?? "")) disconectedFromPeripheral", onLevel: .info)
+        QLog("DeviceManager (\(device.name ?? "")) disconnectedFromPeripheral", onLevel: .info)
+        
+        NotificationService.shared.presentNotificationWith(text: "Disconnected from \(device.name ?? "")")
 
         //Recreate connection request in lock was disconnected (only on background)
-        let shouldReconnectAfterDisconection = device.touchRequired && (BluetoothManager.applicationIsInBackground)
-        guard shouldReconnectAfterDisconection else {
-            QLog("DeviceManager (\(device.name ?? "")) no not reconnect", onLevel: .info)
-            return
-        }
+//        let shouldReconnectAfterDisconection = device.touchRequired && (BluetoothManager.applicationIsInBackground)
+//        guard shouldReconnectAfterDisconection else {
+//            QLog("DeviceManager (\(device.name ?? "")) no not reconnect", onLevel: .info)
+//            return
+//        }
         
-        //Create background task just in case we would not manage to request connection before application des
+        //Create background task just in case we would not manage to request connection before application dies
         cancelBackgroundTask()
         backgroundTask = UIApplication.shared.beginBackgroundTask (expirationHandler: {
             QLog("DeviceManager (\(self.device.name ?? "")) expirationHandler", onLevel: .debug)
@@ -102,7 +95,7 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
     func connectToPeripheral(centralManager: CBCentralManager, onBackground: Bool = false) {
         
         // Discard background connect requests, that are not for Devices in touch mode
-        if !device.touchRequired && onBackground {
+        if !device.touchRequired {
             QLog("DeviceManager (\(device.name ?? "")) connectToPeripheral NOT performed onBackground \(onBackground)", onLevel: .info)
             cancelBackgroundTask()
             return
