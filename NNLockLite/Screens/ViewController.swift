@@ -20,7 +20,10 @@ class ViewController: UIViewController {
     var bluetoothLabel = UILabel()
     var lastEventLabel = UILabel()
     
-    var noDevicesLabel = UILabel()
+    let noDevicesLabel = UILabel()
+    let killSwitch = UISwitch()
+    let killLabel = UILabel()
+    let bleStaticLabel = UILabel()
     
     lazy var fetchResultController: NSFetchedResultsController<Device> = {
         let fetchController = CoreDataStack.shared.devicesFetchedResultsController()
@@ -56,11 +59,7 @@ class ViewController: UIViewController {
         noDevicesLabel.text = "No Devices found"
         noDevicesLabel.textAlignment = .center
         
-        
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send logs", style: UIBarButtonItemStyle.plain, target: self, action: #selector(sendLogs))
-        
-        
         
         let bottomView = UIView()
         let bottomStackView = UIStackView()
@@ -75,22 +74,31 @@ class ViewController: UIViewController {
         }
         
         bottomStackView.snp.makeConstraints { (make) in
-            make.right.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().offset(-8)
             make.left.equalToSuperview().offset(8)
         }
         
-        let bleStaticLabel = UILabel()
         bleStaticLabel.text = "BLE Status:"
         bleStaticLabel.font = UIFont.boldSystemFont(ofSize: 16)
         bleStaticLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: UILayoutConstraintAxis.horizontal)
         
+        self.killLabel.text = "Kill: "
+        self.killLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+        self.killLabel.textAlignment = .right
+        
+        self.killSwitch.isOn = UserDefaults.standard.bool(forKey: Constants.UserDefaults.killIdentifier)
+        self.killSwitch.addTarget(self, action: #selector(changeKillSwitch), for: UIControlEvents.valueChanged)
+        
         let bleStackView = UIStackView()
-        bleStackView.alignment = .fill
+        bleStackView.alignment = .center
         bleStackView.axis = .horizontal
         bleStackView.distribution = .fill
         
         bleStackView.addArrangedSubview(bleStaticLabel)
         bleStackView.addArrangedSubview(self.bluetoothLabel)
+        bleStackView.addArrangedSubview(self.killLabel)
+        bleStackView.addArrangedSubview(self.killSwitch)
         
         
         self.updateBluetoothState(state: AppDelegate.shared.bluetoothManager.centralState)
@@ -112,6 +120,11 @@ class ViewController: UIViewController {
         
         noDevicesLabel.isHidden = controllerHasResults
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @objc func changeKillSwitch() {
+        UserDefaults.standard.set(killSwitch.isOn, forKey: Constants.UserDefaults.killIdentifier)
+        UserDefaults.standard.synchronize()
     }
     
     @objc func sendLogs()  {

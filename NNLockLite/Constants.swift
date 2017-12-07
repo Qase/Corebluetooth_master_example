@@ -16,6 +16,10 @@ struct Constants {
         }
     }
     
+    public struct UserDefaults {
+        public static let killIdentifier = "killIdentifier"
+    }
+    
     public struct TableCells {
         public static let deviceCell = "deviceCell"
     }

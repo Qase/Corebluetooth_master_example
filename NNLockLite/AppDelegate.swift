@@ -91,9 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QLog("AppDelegate applicationDidEnterBackground", onLevel: .info)
         CoreDataStack.shared.saveContext()
         
-//        DispatchQueue.main.async {
-//            kill(getpid(), SIGKILL);
-//        }
+        
+        if UserDefaults.standard.bool(forKey: Constants.UserDefaults.killIdentifier){
+            DispatchQueue.main.async {
+                kill(getpid(), SIGKILL);
+            }
+        }
+
         
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
