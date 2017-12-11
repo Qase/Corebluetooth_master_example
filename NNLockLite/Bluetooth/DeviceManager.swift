@@ -45,11 +45,10 @@ public class DeviceManager: NSObject, CBPeripheralDelegate {
     func connectedToPeripheral(centralManager: CBCentralManager)
     {
         QLog("DeviceManager (\(device.name ?? "")) connectedToPeripheral ", onLevel: .info)
-        
-        
+
         // Post notification about sucesfull connection
         NotificationService.shared.presentNotificationWith(text: "Connected To \(device.name ?? "")")
-        
+
         //disconnectFromPeripheral(centralManager: centralManager)
     }
     

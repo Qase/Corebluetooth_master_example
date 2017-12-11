@@ -15,7 +15,6 @@ public protocol BluetoothManagerDelegate: class {
     func scanManagerDidUpdateState(_ manager: BluetoothManager)
 }
 
-
 public class BluetoothManager: NSObject {
     
     fileprivate var centralManager: CBCentralManager!
@@ -23,7 +22,9 @@ public class BluetoothManager: NSObject {
     
     var devices: [DeviceManager] = []
     
-    static var applicationIsInBackground: Bool = false
+    static var applicationIsInBackground: Bool {
+        return UIApplication.shared.applicationState == .background
+    }
     
     public override init()
     {
@@ -61,13 +62,23 @@ public class BluetoothManager: NSObject {
 extension BluetoothManager: CBCentralManagerDelegate {
     
     private func centralManagerWentPoweredOn(){
-        startScanner()
+        if type(of: self).applicationIsInBackground {
+            requestBackgroundConnections()
+        }
+        else {
+            startScanner()
+        }
+    }
+    
+    private func centralManagerWentPoweredOff(){
+        NotificationService.shared.presentNotificationWith(text: "WARNING: Bluetooth is powered off")
     }
     
     private func startScanner(){
-        if centralManager.isScanning{
+        if centralManager.isScanning {
             return
         }
+        QLog("BluetoothManager: Starting scanner", onLevel: .info)
         centralManager.scanForPeripherals(withServices: [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID)], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
     }
     
@@ -75,6 +86,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
         if !centralManager.isScanning {
             return
         }
+        QLog("BluetoothManager: Stopping scanner", onLevel: .info)
         centralManager.stopScan()
     }
     
@@ -139,8 +151,9 @@ extension BluetoothManager: CBCentralManagerDelegate {
         switch central.state {
         case .poweredOff:
             QLog("BLE status: Powered Off", onLevel: .info)
+            centralManagerWentPoweredOff()
         case .poweredOn:
-            QLog("BLE status: Powered On", onLevel: .info)
+            QLog("BLE status: Powered On (background:\(type(of: self).applicationIsInBackground))", onLevel: .info)
             centralManagerWentPoweredOn()
         case .resetting: QLog("BLE status: Resetting", onLevel: .info)
         case .unauthorized: QLog("BLE status: Unauthorized", onLevel: .info)
@@ -171,27 +184,27 @@ extension BluetoothManager {
             deviceManager.device.touchRequired
         }
         
-        QLog("Requesting connection to \(touchDevices.count) devices", onLevel: .info)
+        QLog("BluetoothManager Requesting connection to \(touchDevices.count) devices", onLevel: .info)
         touchDevices.forEach { (deviceManager) in
             deviceManager.connectToPeripheral(centralManager: centralManager, onBackground: true)
         }
     }
     
     func stopBackgroundConnections() {
-        QLog("Cancel connection to all devices", onLevel: .info)
+        QLog("BluetoothManager Cancel connection to all devices", onLevel: .info)
         devices.forEach { (deviceManager) in
             centralManager.cancelPeripheralConnection(deviceManager.peripheral)
         }
     }
     
     @objc func applicationWillEnterForeground() {
-        type(of: self).applicationIsInBackground = false
+        //type(of: self).applicationIsInBackground = false
         startScanner()
         //stopBackgroundConnections()
     }
     
     @objc func applicationDidEnterBackground() {
-        type(of: self).applicationIsInBackground = true
+        //type(of: self).applicationIsInBackground = true
         stopScanner()
         requestBackgroundConnections()
     }
