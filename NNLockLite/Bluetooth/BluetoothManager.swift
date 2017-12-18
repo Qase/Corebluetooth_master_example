@@ -41,7 +41,17 @@ public class BluetoothManager: NSObject {
             return device.identifierUUID
         }.flatMap { $0 }
         
-        let peripherals = centralManager.retrievePeripherals(withIdentifiers: deviceUUIDs)
+        var peripherals = centralManager.retrievePeripherals(withIdentifiers: deviceUUIDs)
+        
+        QLog("restoreDevices Devices: \(devices)", onLevel: .info)
+        QLog("restoreDevices Device UUIDs: \(deviceUUIDs)", onLevel: .info)
+        QLog("restoreDevices peripherals: \(peripherals)", onLevel: .info)
+        
+        // FOR TESTING
+        let connectedPeripherals = centralManager.retrieveConnectedPeripherals(withServices: [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID)])
+        QLog("restoreDevices connectedPeripherals: \(connectedPeripherals)", onLevel: .info)
+        peripherals.append(contentsOf: connectedPeripherals)
+        // FOR TESTING END
         
         let deviceManagers =  devices.map { (device) -> DeviceManager? in
             if let peripheral = peripherals.first(where: { (peripheral) -> Bool in
@@ -49,7 +59,7 @@ public class BluetoothManager: NSObject {
             }) {
                 return DeviceManager(peripheral: peripheral, device: device)
             }
-            QLog("UBER ERROR: System forgot peripheral", onLevel: .error)
+            QLog("UBER ERROR: System forgot peripheral \(device.identifierUUID?.uuidString ?? "nil")", onLevel: .error)
             return nil
         }
         
