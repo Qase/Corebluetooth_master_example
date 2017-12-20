@@ -35,7 +35,7 @@ public class BluetoothManager: NSObject {
         restoreDevices()
     }
     
-    func restoreDevices(){
+    func restoreDevices(restoredPeripherals: [CBPeripheral] = [] ) {
         let devices = CoreDataStack.shared.getAllDevices()
         let deviceUUIDs = devices.map { (device) -> UUID? in
             return device.identifierUUID
@@ -46,12 +46,17 @@ public class BluetoothManager: NSObject {
         QLog("restoreDevices Devices: \(devices)", onLevel: .info)
         QLog("restoreDevices Device UUIDs: \(deviceUUIDs)", onLevel: .info)
         QLog("restoreDevices peripherals: \(peripherals)", onLevel: .info)
+        QLog("restoreDevices restoredPeripherals: \(restoredPeripherals)", onLevel: .info)
         
         // FOR TESTING
         let connectedPeripherals = centralManager.retrieveConnectedPeripherals(withServices: [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID)])
         QLog("restoreDevices connectedPeripherals: \(connectedPeripherals)", onLevel: .info)
         peripherals.append(contentsOf: connectedPeripherals)
+        peripherals.append(contentsOf: restoredPeripherals)
+        peripherals = Array(Set(peripherals))
         // FOR TESTING END
+        
+        QLog("restoreDevices peripherals Final: \(peripherals)", onLevel: .info)
         
         let deviceManagers =  devices.map { (device) -> DeviceManager? in
             if let peripheral = peripherals.first(where: { (peripheral) -> Bool in
@@ -59,7 +64,7 @@ public class BluetoothManager: NSObject {
             }) {
                 return DeviceManager(peripheral: peripheral, device: device)
             }
-            QLog("UBER ERROR: System forgot peripheral \(device.identifierUUID?.uuidString ?? "nil")", onLevel: .error)
+            QLog("UBER ERROR: System forgot peripheral \(device.name ?? "no-name") \(device.identifierUUID?.uuidString ?? "nil")", onLevel: .error)
             return nil
         }
         
@@ -174,8 +179,11 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-        QLog("BluetoothManager centralManager willRestoreState", onLevel: .info)
-        restoreDevices()
+        QLog("BluetoothManager centralManager willRestoreState \(dict)", onLevel: .info)
+        
+        let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]
+        
+        restoreDevices(restoredPeripherals: peripherals ?? [])
         //requestBackgroundConnections()
     }
 }
