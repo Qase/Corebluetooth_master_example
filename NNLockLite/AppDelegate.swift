@@ -10,6 +10,26 @@ import UIKit
 import QuantiLogger
 import UserNotifications
 
+extension Bundle {
+    
+    var appName: String {
+        return infoDictionary?["CFBundleName"] as? String ?? "unknown"
+    }
+    
+    var bundleId: String {
+        return bundleIdentifier!
+    }
+    
+    var versionNumber: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String  ?? "unknown"
+    }
+    
+    var buildNumber: String {
+        return infoDictionary?["CFBundleVersion"] as? String  ?? "unknown"
+    }
+    
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -38,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
         
-        
+        let systemVersion = UIDevice.current.systemVersion
+        QLog("AppDelegate versionNumber:\(Bundle.main.versionNumber), buildNumber:\(Bundle.main.buildNumber) systemVersion: \(systemVersion)", onLevel: .info)
         
         if let centrals = launchOptions?[UIApplicationLaunchOptionsKey.bluetoothCentrals]{
             NotificationService.shared.presentNotificationWith(text: "App Launched - Restoring State")
