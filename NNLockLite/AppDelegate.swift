@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public static func prepareLogger() {
-        LogManager.shared.shouldPerformAsync = false
         let systemLogger = SystemLogger(subsystem: "com.quanti.swift.NNLockLite", category: "logging")
         systemLogger.levels = [.verbose, .info, .debug, .warn, .error]
 
@@ -56,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AppDelegate.prepareLogger()
         
-        QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
-        
+//        QLog("AppDelegate didFinishLaunchingWithOptions", onLevel: .info)
+
         let systemVersion = UIDevice.current.systemVersion
         QLog("AppDelegate versionNumber:\(Bundle.main.versionNumber), buildNumber:\(Bundle.main.buildNumber) systemVersion: \(systemVersion)", onLevel: .info)
         
@@ -103,13 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        QLog("AppDelegate applicationWillResignActive", onLevel: .info)
+//        QLog("AppDelegate applicationWillResignActive", onLevel: .info)
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        QLog("AppDelegate applicationDidEnterBackground", onLevel: .info)
+//        QLog("AppDelegate applicationDidEnterBackground", onLevel: .info)
         CoreDataStack.shared.saveContext()
         
         
@@ -125,18 +124,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        QLog("AppDelegate applicationWillEnterForeground", onLevel: .info)
+//        QLog("AppDelegate applicationWillEnterForeground", onLevel: .info)
         UIApplication.shared.applicationIconBadgeNumber = 0
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        QLog("AppDelegate applicationDidBecomeActive", onLevel: .info)
+//        QLog("AppDelegate applicationDidBecomeActive", onLevel: .info)
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        QLog("AppDelegate applicationWillTerminate", onLevel: .info)
+//        QLog("AppDelegate applicationWillTerminate", onLevel: .info)
         CoreDataStack.shared.saveContext()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
