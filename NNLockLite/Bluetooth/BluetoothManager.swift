@@ -22,6 +22,8 @@ public class BluetoothManager: NSObject {
     
     var devices: [DeviceManager] = []
     
+    var servicesArray = [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID), CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUIDSecondary)]
+    
     static var applicationIsInBackground: Bool {
         return UIApplication.shared.applicationState == .background
     }
@@ -49,7 +51,7 @@ public class BluetoothManager: NSObject {
         QLog("restoreDevices restoredPeripherals: \(restoredPeripherals)", onLevel: .info)
         
         // FOR TESTING
-        let connectedPeripherals = centralManager.retrieveConnectedPeripherals(withServices: [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID)])
+        let connectedPeripherals = centralManager.retrieveConnectedPeripherals(withServices: servicesArray)
         QLog("restoreDevices connectedPeripherals: \(connectedPeripherals)", onLevel: .info)
         peripherals.append(contentsOf: connectedPeripherals)
         peripherals.append(contentsOf: restoredPeripherals)
@@ -94,7 +96,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
             return
         }
         QLog("BluetoothManager: Starting scanner", onLevel: .info)
-        centralManager.scanForPeripherals(withServices: [CBUUID(string: Constants.Bluetooth.Identifiers.ServiceUUID)], options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
+        centralManager.scanForPeripherals(withServices: servicesArray, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
     }
     
     private func stopScanner(){
@@ -119,8 +121,11 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        //QLog("ScanManager centralManagerdidDiscover \(peripheralName) data: \(advertisementData) rssi: \(RSSI)", onLevel: .info)
+        
         let peripheralName = peripheral.name ?? "no-name"
+
+        QLog("ScanManager centralManagerdidDiscover \(peripheralName) data: \(advertisementData) rssi: \(RSSI)", onLevel: .info)
+
         let deviceManager = self.deviceManagerFor(peripheral)
         deviceManager.device.updateFrom(advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data, rssi: RSSI)
         deviceManager.device.name = peripheralName

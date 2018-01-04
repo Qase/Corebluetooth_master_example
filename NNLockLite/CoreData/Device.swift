@@ -25,6 +25,9 @@ import CoreData
     
     var flagString: String {
         var string = ""
+        if isSimulator {
+            string += "isSimulator|"
+        }
         if touchRequired {
             string += "touchRequired|"
         }
@@ -56,7 +59,10 @@ import CoreData
     
     func updateFrom(_ advertisementData: Data?, rssi:NSNumber = 0) {
         
+        lastScanDate = Date()
         guard let advertisementData = advertisementData, advertisementData.count >= 6 else {
+            isSimulator = true
+            touchRequired = true
             return
         }
         
@@ -76,7 +82,7 @@ import CoreData
         (advertisementData as NSData).getBytes(&counterBytes, range: NSRange(location: 4, length: 2))
         configurationCounter = Int32(CFSwapInt16(counterBytes))
         
-        lastScanDate = Date()
+
         
     }
 }

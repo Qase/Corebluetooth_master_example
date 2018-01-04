@@ -67,6 +67,7 @@
 /* Begin PBXFileReference section */
 		55054A991FB9F957001EB915 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		550B00481FFD05B500B76E4F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		5518EC431FB47AF200219B72 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		5518EC451FB47C2300219B72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		554B17FD1FB49C3A0081B2C3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -694,9 +695,10 @@
 		554B18011FB5AE250081B2C3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				550B00481FFD05B500B76E4F /* Model 2.xcdatamodel */,
 				554B18021FB5AE250081B2C3 /* Model.xcdatamodel */,
 			);
-			currentVersion = 554B18021FB5AE250081B2C3 /* Model.xcdatamodel */;
+			currentVersion = 550B00481FFD05B500B76E4F /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
