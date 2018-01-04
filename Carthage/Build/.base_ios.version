@@ -1,9 +1,18 @@
 {
-  "commitish" : "9003bcafef9560e72b3da5e5a340e3b26e7c7eaa",
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "9951660a153ba590c9af8cefbb91d1d0c82841d3",
   "iOS" : [
     {
       "name" : "QuantiBase",
-      "hash" : "2a3e7d9b73edf7e108dd8ab2f8363a11759a45225cf794d51044a2c9ce07b99c"
+      "hash" : "23ef8bfdee3a4ed24a82e6fc8f50a4594851a99cadc802f0dd2a9382533ceeb2"
     }
   ]
 }
