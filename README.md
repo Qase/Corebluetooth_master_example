@@ -1,5 +1,6 @@
 # CoreBluetooth Example (Master Mode)
 
+
 Proof of Concept app to test behavior of CoreBluetooth on iOS. App contains State restoration, so app will be relaunched by system if dealloced from memory.
 
 Peripheral app from [BLE_Prototype_iOS project](https://github.com/Qase/BLE_Prototype_iOS) can be used as bluetooth device, that this app would automatically scan and connect to.
@@ -27,9 +28,9 @@ Peripheral app from [BLE_Prototype_iOS project](https://github.com/Qase/BLE_Prot
 ## Bluetooth States
 | State        | Application state                                     | Notes                                                                | Control Center |  | 
 |--------------|-------------------------------------------------------|----------------------------------------------------------------------|----------------|--| 
-| Powered off  | Works only if App remains in memory (suspended state) | Toggle Bluetooth power either through Settings, or via Airplane mode |                |  | 
-| Partially on | Works after bluetooth state is changed to Powered On  | Toggled in Control Center                                            |                |  | 
-| Powered on   | Works                                                 |                                                                      |                |  | 
+| Powered off  | Works only if App remains in memory (suspended state) | Toggle Bluetooth power either through Settings, or via Airplane mode |                | ![screen shot 2017-12-27 at 13 09 07](https://user-images.githubusercontent.com/5677479/34609561-94a507d4-f21d-11e7-86d5-5a641311203a.png) | 
+| Partially on | Works after bluetooth state is changed to Powered On  | Toggled in Control Center                                            |                | ![screen shot 2017-12-27 at 13 08 55](https://user-images.githubusercontent.com/5677479/34609557-911bf26c-f21d-11e7-9787-7e88752efbf1.png) | 
+| Powered on   | Works                                                 |                                                                      |                | ![screen shot 2017-12-27 at 13 08 55](https://user-images.githubusercontent.com/5677479/34609555-8e1e4f6a-f21d-11e7-9b4c-4aef7554617a.png) | 
 
 
 ## Application restoration on background (IF App WAS removed from memory)
