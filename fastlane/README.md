@@ -30,24 +30,9 @@ xcode-select --install
 
 # Available Actions
 ## iOS
-### ios build_application
+### ios build
 ```
-fastlane ios build_application
-```
-Build aplication
-### ios upload_crashlytics
-```
-fastlane ios upload_crashlytics
-```
-
-### ios deploy_pilot
-```
-fastlane ios deploy_pilot
-```
-Deploy application to pilot
-### ios update_profiles
-```
-fastlane ios update_profiles
+fastlane ios build
 ```
 
 

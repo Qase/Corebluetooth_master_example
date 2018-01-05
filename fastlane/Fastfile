@@ -19,7 +19,7 @@ platform :ios do
   
 lane :build do
     xcodebuild(
-      scheme: "QPageViewController",
+      scheme: "NNLockLite",
     )
   end
 
