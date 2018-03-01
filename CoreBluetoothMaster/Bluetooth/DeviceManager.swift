@@ -1,6 +1,6 @@
 //
 //  DeviceManager.swift
-//  NNLockLite
+//  CoreBluetoothMaster
 //
 //  Created by David Nemec on 09/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  NNLockLite
+//  CoreBluetoothMaster
 //
 //  Created by David Nemec on 08/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "2N Lock Lite"
+        self.title = "CoreBluetoothMaster"
         self.view.backgroundColor = .white
         
         self.view.addSubview(tableView)

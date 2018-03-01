@@ -20,8 +20,8 @@
 		5561BE051FB363840087CB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE041FB363840087CB58 /* ViewController.swift */; };
 		5561BE0A1FB363840087CB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE091FB363840087CB58 /* Assets.xcassets */; };
 		5561BE0D1FB363840087CB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561BE0B1FB363840087CB58 /* LaunchScreen.storyboard */; };
-		5561BE181FB363840087CB58 /* NNLockLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE171FB363840087CB58 /* NNLockLiteTests.swift */; };
-		5561BE231FB363840087CB58 /* NNLockLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */; };
+		5561BE181FB363840087CB58 /* CoreBluetoothMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE171FB363840087CB58 /* CoreBluetoothMasterTests.swift */; };
+		5561BE231FB363840087CB58 /* CoreBluetoothMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561BE221FB363840087CB58 /* CoreBluetoothMasterUITests.swift */; };
 		5561BE311FB36CF40087CB58 /* QuantiBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE301FB36CF30087CB58 /* QuantiBase.framework */; };
 		5561BE321FB36CF40087CB58 /* QuantiBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE301FB36CF30087CB58 /* QuantiBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5561BE351FB36D020087CB58 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5561BE341FB36D010087CB58 /* QuantiLogger.framework */; };
@@ -75,17 +75,17 @@
 		554B18021FB5AE250081B2C3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		554B18051FB5B2F80081B2C3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		554B180B1FB5E0B70081B2C3 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
-		5561BDFF1FB363840087CB58 /* NNLockLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNLockLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BDFF1FB363840087CB58 /* CoreBluetoothMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBluetoothMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5561BE021FB363840087CB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5561BE041FB363840087CB58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5561BE091FB363840087CB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5561BE0C1FB363840087CB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5561BE0E1FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NNLockLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5561BE171FB363840087CB58 /* NNLockLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLockLiteTests.swift; sourceTree = "<group>"; };
+		5561BE131FB363840087CB58 /* CoreBluetoothMasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBluetoothMasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BE171FB363840087CB58 /* CoreBluetoothMasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBluetoothMasterTests.swift; sourceTree = "<group>"; };
 		5561BE191FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NNLockLiteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLockLiteUITests.swift; sourceTree = "<group>"; };
+		5561BE1E1FB363840087CB58 /* CoreBluetoothMasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreBluetoothMasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5561BE221FB363840087CB58 /* CoreBluetoothMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBluetoothMasterUITests.swift; sourceTree = "<group>"; };
 		5561BE241FB363840087CB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5561BE301FB36CF30087CB58 /* QuantiBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuantiBase.framework; path = Carthage/Build/iOS/QuantiBase.framework; sourceTree = "<group>"; };
 		5561BE341FB36D010087CB58 /* QuantiLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuantiLogger.framework; path = Carthage/Build/iOS/QuantiLogger.framework; sourceTree = "<group>"; };
@@ -167,9 +167,9 @@
 				5561BE371FB36D190087CB58 /* SnapKit.framework */,
 				5561BE341FB36D010087CB58 /* QuantiLogger.framework */,
 				5561BE301FB36CF30087CB58 /* QuantiBase.framework */,
-				5561BE011FB363840087CB58 /* NNLockLite */,
-				5561BE161FB363840087CB58 /* NNLockLiteTests */,
-				5561BE211FB363840087CB58 /* NNLockLiteUITests */,
+				5561BE011FB363840087CB58 /* CoreBluetoothMaster */,
+				5561BE161FB363840087CB58 /* CoreBluetoothMasterTests */,
+				5561BE211FB363840087CB58 /* CoreBluetoothMasterUITests */,
 				5561BE001FB363840087CB58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,14 +177,14 @@
 		5561BE001FB363840087CB58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5561BDFF1FB363840087CB58 /* NNLockLite.app */,
-				5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */,
-				5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */,
+				5561BDFF1FB363840087CB58 /* CoreBluetoothMaster.app */,
+				5561BE131FB363840087CB58 /* CoreBluetoothMasterTests.xctest */,
+				5561BE1E1FB363840087CB58 /* CoreBluetoothMasterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5561BE011FB363840087CB58 /* NNLockLite */ = {
+		5561BE011FB363840087CB58 /* CoreBluetoothMaster */ = {
 			isa = PBXGroup;
 			children = (
 				554B18081FB5DC710081B2C3 /* Bluetooth */,
@@ -195,33 +195,33 @@
 				55054A991FB9F957001EB915 /* AppTheme.swift */,
 				5518EC451FB47C2300219B72 /* Constants.swift */,
 			);
-			path = NNLockLite;
+			path = CoreBluetoothMaster;
 			sourceTree = "<group>";
 		};
-		5561BE161FB363840087CB58 /* NNLockLiteTests */ = {
+		5561BE161FB363840087CB58 /* CoreBluetoothMasterTests */ = {
 			isa = PBXGroup;
 			children = (
-				5561BE171FB363840087CB58 /* NNLockLiteTests.swift */,
+				5561BE171FB363840087CB58 /* CoreBluetoothMasterTests.swift */,
 				5561BE191FB363840087CB58 /* Info.plist */,
 			);
-			path = NNLockLiteTests;
+			path = CoreBluetoothMasterTests;
 			sourceTree = "<group>";
 		};
-		5561BE211FB363840087CB58 /* NNLockLiteUITests */ = {
+		5561BE211FB363840087CB58 /* CoreBluetoothMasterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5561BE221FB363840087CB58 /* NNLockLiteUITests.swift */,
+				5561BE221FB363840087CB58 /* CoreBluetoothMasterUITests.swift */,
 				5561BE241FB363840087CB58 /* Info.plist */,
 			);
-			path = NNLockLiteUITests;
+			path = CoreBluetoothMasterUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5561BDFE1FB363840087CB58 /* NNLockLite */ = {
+		5561BDFE1FB363840087CB58 /* CoreBluetoothMaster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLite" */;
+			buildConfigurationList = 5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMaster" */;
 			buildPhases = (
 				5561BDFB1FB363840087CB58 /* Sources */,
 				5561BDFC1FB363840087CB58 /* Frameworks */,
@@ -233,14 +233,14 @@
 			);
 			dependencies = (
 			);
-			name = NNLockLite;
+			name = CoreBluetoothMaster;
 			productName = NNLockLite;
-			productReference = 5561BDFF1FB363840087CB58 /* NNLockLite.app */;
+			productReference = 5561BDFF1FB363840087CB58 /* CoreBluetoothMaster.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5561BE121FB363840087CB58 /* NNLockLiteTests */ = {
+		5561BE121FB363840087CB58 /* CoreBluetoothMasterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteTests" */;
+			buildConfigurationList = 5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMasterTests" */;
 			buildPhases = (
 				5561BE0F1FB363840087CB58 /* Sources */,
 				5561BE101FB363840087CB58 /* Frameworks */,
@@ -251,14 +251,14 @@
 			dependencies = (
 				5561BE151FB363840087CB58 /* PBXTargetDependency */,
 			);
-			name = NNLockLiteTests;
+			name = CoreBluetoothMasterTests;
 			productName = NNLockLiteTests;
-			productReference = 5561BE131FB363840087CB58 /* NNLockLiteTests.xctest */;
+			productReference = 5561BE131FB363840087CB58 /* CoreBluetoothMasterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5561BE1D1FB363840087CB58 /* NNLockLiteUITests */ = {
+		5561BE1D1FB363840087CB58 /* CoreBluetoothMasterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteUITests" */;
+			buildConfigurationList = 5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMasterUITests" */;
 			buildPhases = (
 				5561BE1A1FB363840087CB58 /* Sources */,
 				5561BE1B1FB363840087CB58 /* Frameworks */,
@@ -269,9 +269,9 @@
 			dependencies = (
 				5561BE201FB363840087CB58 /* PBXTargetDependency */,
 			);
-			name = NNLockLiteUITests;
+			name = CoreBluetoothMasterUITests;
 			productName = NNLockLiteUITests;
-			productReference = 5561BE1E1FB363840087CB58 /* NNLockLiteUITests.xctest */;
+			productReference = 5561BE1E1FB363840087CB58 /* CoreBluetoothMasterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -286,7 +286,7 @@
 				TargetAttributes = {
 					5561BDFE1FB363840087CB58 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -305,7 +305,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "NNLockLite" */;
+			buildConfigurationList = 5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "CoreBluetoothMaster" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -318,9 +318,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5561BDFE1FB363840087CB58 /* NNLockLite */,
-				5561BE121FB363840087CB58 /* NNLockLiteTests */,
-				5561BE1D1FB363840087CB58 /* NNLockLiteUITests */,
+				5561BDFE1FB363840087CB58 /* CoreBluetoothMaster */,
+				5561BE121FB363840087CB58 /* CoreBluetoothMasterTests */,
+				5561BE1D1FB363840087CB58 /* CoreBluetoothMasterUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -391,7 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5561BE181FB363840087CB58 /* NNLockLiteTests.swift in Sources */,
+				5561BE181FB363840087CB58 /* CoreBluetoothMasterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5561BE231FB363840087CB58 /* NNLockLiteUITests.swift in Sources */,
+				5561BE231FB363840087CB58 /* CoreBluetoothMasterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,12 +408,12 @@
 /* Begin PBXTargetDependency section */
 		5561BE151FB363840087CB58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5561BDFE1FB363840087CB58 /* NNLockLite */;
+			target = 5561BDFE1FB363840087CB58 /* CoreBluetoothMaster */;
 			targetProxy = 5561BE141FB363840087CB58 /* PBXContainerItemProxy */;
 		};
 		5561BE201FB363840087CB58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5561BDFE1FB363840087CB58 /* NNLockLite */;
+			target = 5561BDFE1FB363840087CB58 /* CoreBluetoothMaster */;
 			targetProxy = 5561BE1F1FB363840087CB58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -541,20 +541,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PY9RKK8A7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = NNLockLite/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreBluetoothMaster/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "957949e1-779f-444f-87fb-e8fd322fb3d3";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.quanti.swift.NNLockLite";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -564,21 +565,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 97DXWGRCGZ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PY9RKK8A7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = NNLockLite/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreBluetoothMaster/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLite;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a48bc662-2636-4fd8-b628-859e8938641b";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.quanti.swift.NNLockLite";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -591,13 +592,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97DXWGRCGZ;
-				INFOPLIST_FILE = NNLockLiteTests/Info.plist;
+				INFOPLIST_FILE = CoreBluetoothMasterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NNLockLite.app/NNLockLite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreBluetoothMaster.app/CoreBluetoothMaster";
 			};
 			name = Debug;
 		};
@@ -608,13 +609,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97DXWGRCGZ;
-				INFOPLIST_FILE = NNLockLiteTests/Info.plist;
+				INFOPLIST_FILE = CoreBluetoothMasterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NNLockLite.app/NNLockLite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoreBluetoothMaster.app/CoreBluetoothMaster";
 			};
 			name = Release;
 		};
@@ -624,13 +625,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97DXWGRCGZ;
-				INFOPLIST_FILE = NNLockLiteUITests/Info.plist;
+				INFOPLIST_FILE = CoreBluetoothMasterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMasterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NNLockLite;
+				TEST_TARGET_NAME = CoreBluetoothMaster;
 			};
 			name = Debug;
 		};
@@ -640,20 +641,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97DXWGRCGZ;
-				INFOPLIST_FILE = NNLockLiteUITests/Info.plist;
+				INFOPLIST_FILE = CoreBluetoothMasterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.NNLockLiteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.CoreBluetoothMasterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NNLockLite;
+				TEST_TARGET_NAME = CoreBluetoothMaster;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "NNLockLite" */ = {
+		5561BDFA1FB363840087CB58 /* Build configuration list for PBXProject "CoreBluetoothMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5561BE251FB363840087CB58 /* Debug */,
@@ -662,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLite" */ = {
+		5561BE271FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5561BE281FB363840087CB58 /* Debug */,
@@ -671,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteTests" */ = {
+		5561BE2A1FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMasterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5561BE2B1FB363840087CB58 /* Debug */,
@@ -680,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "NNLockLiteUITests" */ = {
+		5561BE2D1FB363840087CB58 /* Build configuration list for PBXNativeTarget "CoreBluetoothMasterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5561BE2E1FB363840087CB58 /* Debug */,

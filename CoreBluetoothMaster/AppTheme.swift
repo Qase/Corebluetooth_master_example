@@ -1,6 +1,6 @@
 //
 //  AppTheme.swift
-//  NNLockLite
+//  CoreBluetoothMaster
 //
 //  Created by David Nemec on 13/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.

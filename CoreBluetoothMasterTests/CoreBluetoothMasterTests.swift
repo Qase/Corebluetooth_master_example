@@ -1,15 +1,15 @@
 //
-//  NNLockLiteTests.swift
-//  NNLockLiteTests
+//  CoreBluetoothMasterTests.swift
+//  CoreBluetoothMasterTests
 //
 //  Created by David Nemec on 08/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.
 //
 
 import XCTest
-@testable import NNLockLite
+@testable import CoreBluetoothMaster
 
-class NNLockLiteTests: XCTestCase {
+class CoreBluetoothMasterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

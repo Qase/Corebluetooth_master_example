@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  NNLockLite
+//  CoreBluetoothMaster
 //
 //  Created by David Nemec on 08/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public static func prepareLogger() {
-        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.NNLockLite", category: "logging")
+        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.CoreBluetoothMaster", category: "logging")
         systemLogger.levels = [.verbose, .info, .debug, .warn, .error]
 
         let fileLogger = FileLogger()

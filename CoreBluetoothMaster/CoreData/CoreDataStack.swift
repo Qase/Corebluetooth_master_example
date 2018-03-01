@@ -1,6 +1,6 @@
 //
 //  CoreDataStack.swift
-//  NNLockLite
+//  CoreBluetoothMaster
 //
 //  Created by David Nemec on 10/11/2017.
 //  Copyright © 2017 Quanti. All rights reserved.

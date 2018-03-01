@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5561BDFE1FB363840087CB58"
-               BuildableName = "NNLockLite.app"
-               BlueprintName = "NNLockLite"
-               ReferencedContainer = "container:NNLockLite.xcodeproj">
+               BuildableName = "CoreBluetoothMaster.app"
+               BlueprintName = "CoreBluetoothMaster"
+               ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,14 +29,34 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5561BE121FB363840087CB58"
+               BuildableName = "CoreBluetoothMasterTests.xctest"
+               BlueprintName = "CoreBluetoothMasterTests"
+               ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5561BE1D1FB363840087CB58"
+               BuildableName = "CoreBluetoothMasterUITests.xctest"
+               BlueprintName = "CoreBluetoothMasterUITests"
+               ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5561BDFE1FB363840087CB58"
-            BuildableName = "NNLockLite.app"
-            BlueprintName = "NNLockLite"
-            ReferencedContainer = "container:NNLockLite.xcodeproj">
+            BuildableName = "CoreBluetoothMaster.app"
+            BlueprintName = "CoreBluetoothMaster"
+            ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -47,7 +67,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      launchStyle = "1"
+      launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
@@ -58,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5561BDFE1FB363840087CB58"
-            BuildableName = "NNLockLite.app"
-            BlueprintName = "NNLockLite"
-            ReferencedContainer = "container:NNLockLite.xcodeproj">
+            BuildableName = "CoreBluetoothMaster.app"
+            BlueprintName = "CoreBluetoothMaster"
+            ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,9 +97,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5561BDFE1FB363840087CB58"
-            BuildableName = "NNLockLite.app"
-            BlueprintName = "NNLockLite"
-            ReferencedContainer = "container:NNLockLite.xcodeproj">
+            BuildableName = "CoreBluetoothMaster.app"
+            BlueprintName = "CoreBluetoothMaster"
+            ReferencedContainer = "container:CoreBluetoothMaster.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
