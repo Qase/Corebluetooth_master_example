@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/42817019-0933-41c7-b3e4-0abe9c2405b3)](https://codebeat.co/projects/github-com-qase-corebluetooth_master_example-master-59d48dfd-4525-4ab8-8b89-3184ba63ac11)
+
 # CoreBluetooth Example (Master Mode)
 
 
