@@ -16,14 +16,25 @@ import MessageUI
 
 class ViewController: UIViewController {
 
-    var tableView = UITableView()
+    lazy var tableView:UITableView = {
+        let tableView = UITableView()
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: UIControlEvents.valueChanged)
+        tableView.tableFooterView = UIView()
+        tableView.register(DeviceTableViewCell.self, forCellReuseIdentifier: Constants.TableCells.deviceCell)
+        tableView.estimatedRowHeight = 310
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
+
     var bluetoothLabel = UILabel()
     var lastEventLabel = UILabel()
-    
     let noDevicesLabel = UILabel()
     let killSwitch = UISwitch()
     let killLabel = UILabel()
-    let bleStaticLabel = UILabel()
     
     lazy var fetchResultController: NSFetchedResultsController<Device> = {
         let fetchController = CoreDataStack.shared.devicesFetchedResultsController()
@@ -35,6 +46,53 @@ class ViewController: UIViewController {
         return self.fetchResultController.fetchedObjects?.count ?? 0 > 0
     }
     
+    func createBottomView(){
+        let bottomView = UIView()
+        let bottomStackView = UIStackView()
+        view.addSubview(bottomView)
+        bottomView.addSubview(bottomStackView)
+        
+        // Create bottom view
+        bottomView.backgroundColor = .lightGray
+        bottomView.snp.makeConstraints { (make) in
+            make.right.left.bottom.equalToSuperview()
+            make.top.equalTo(tableView.snp.bottom)
+        }
+        
+        // Create bottomStackView
+        bottomStackView.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().offset(-8)
+            make.left.equalToSuperview().offset(8)
+        }
+
+        // Create ble label
+        let bleStaticLabel = UILabel()
+        bleStaticLabel.text = "BLE Status:"
+        bleStaticLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        bleStaticLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: UILayoutConstraintAxis.horizontal)
+        
+        //Create kill label
+        self.killLabel.text = "Kill: "
+        self.killLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+        self.killLabel.textAlignment = .right
+        
+        //Create kill swith
+        self.killSwitch.isOn = UserDefaults.standard.bool(forKey: Constants.UserDefaults.killIdentifier)
+        self.killSwitch.addTarget(self, action: #selector(changeKillSwitch), for: UIControlEvents.valueChanged)
+        
+        //Create ble stack view
+        let bleStackView = UIStackView()
+        bleStackView.alignment = .center
+        bleStackView.axis = .horizontal
+        bleStackView.distribution = .fill
+        
+        [bleStaticLabel, bluetoothLabel, killLabel, killSwitch].forEach { (aView) in
+            bleStackView.addArrangedSubview(aView)
+        }
+        bottomStackView.addArrangedSubview(bleStackView)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,83 +101,31 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.view.addSubview(tableView)
+        self.view.addSubview(noDevicesLabel)
+
         tableView.snp.makeConstraints { (make) in
             make.left.top.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-50)
         }
         
-        self.tableView.refreshControl = UIRefreshControl()
-        self.tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: UIControlEvents.valueChanged)
-        self.tableView.tableFooterView = UIView()
-        
-        self.view.addSubview(noDevicesLabel)
         noDevicesLabel.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         noDevicesLabel.text = "No Devices found"
         noDevicesLabel.textAlignment = .center
         
+        createBottomView()
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send logs", style: UIBarButtonItemStyle.plain, target: self, action: #selector(sendLogs))
         
-        let bottomView = UIView()
-        let bottomStackView = UIStackView()
-        view.addSubview(bottomView)
-        bottomView.addSubview(bottomStackView)
-        
-        bottomView.backgroundColor = .lightGray
-        
-        bottomView.snp.makeConstraints { (make) in
-            make.right.left.bottom.equalToSuperview()
-            make.top.equalTo(tableView.snp.bottom)
-        }
-        
-        bottomStackView.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-8)
-            make.left.equalToSuperview().offset(8)
-        }
-        
-        bleStaticLabel.text = "BLE Status:"
-        bleStaticLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        bleStaticLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: UILayoutConstraintAxis.horizontal)
-        
-        self.killLabel.text = "Kill: "
-        self.killLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
-        self.killLabel.textAlignment = .right
-        
-        self.killSwitch.isOn = UserDefaults.standard.bool(forKey: Constants.UserDefaults.killIdentifier)
-        self.killSwitch.addTarget(self, action: #selector(changeKillSwitch), for: UIControlEvents.valueChanged)
-        
-        let bleStackView = UIStackView()
-        bleStackView.alignment = .center
-        bleStackView.axis = .horizontal
-        bleStackView.distribution = .fill
-        
-        bleStackView.addArrangedSubview(bleStaticLabel)
-        bleStackView.addArrangedSubview(self.bluetoothLabel)
-        bleStackView.addArrangedSubview(self.killLabel)
-        bleStackView.addArrangedSubview(self.killSwitch)
-        
-        
         self.updateBluetoothState(state: AppDelegate.shared.bluetoothManager.centralState)
-        
-        bottomStackView.addArrangedSubview(bleStackView)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        self.tableView.register(DeviceTableViewCell.self, forCellReuseIdentifier: Constants.TableCells.deviceCell)
-        self.tableView.estimatedRowHeight = 310
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         do {
             try fetchResultController.performFetch()
         } catch {
             QLog("Fetch controller: \(fetchResultController) fetch failed with error \(error)", onLevel: .error)
         }
-        
         noDevicesLabel.isHidden = controllerHasResults
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     @objc func changeKillSwitch() {
@@ -178,14 +184,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         myCell.entry = fetchResultController.object(at: indexPath)
         return myCell
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-////        guard let myCell = cell as? DeviceTableViewCell else {
-////            return
-////        }
-////
-////        myCell.entry = fetchResultController.object(at: indexPath)
-//    }
 }
 
 extension ViewController: BluetoothManagerDelegate{
@@ -251,7 +249,6 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         //QLog("CallLog controllerDidChangeContent", onLevel: .debug)
-
         noDevicesLabel.isHiddenGuarded = controllerHasResults
         self.tableView.endUpdates()
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550504AF2049A4610017C4D4 /* UInt8Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550504AE2049A4610017C4D4 /* UInt8Extension.swift */; };
+		550504B12049AFDE0017C4D4 /* CBCentralManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550504B02049AFDE0017C4D4 /* CBCentralManagerExtension.swift */; };
 		55054A9A1FB9F957001EB915 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054A991FB9F957001EB915 /* AppTheme.swift */; };
 		55054A9C1FBA0384001EB915 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */; };
 		5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518EC431FB47AF200219B72 /* BluetoothManager.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		550504AE2049A4610017C4D4 /* UInt8Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt8Extension.swift; sourceTree = "<group>"; };
+		550504B02049AFDE0017C4D4 /* CBCentralManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBCentralManagerExtension.swift; sourceTree = "<group>"; };
 		55054A991FB9F957001EB915 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		55054A9B1FBA0384001EB915 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		550B00481FFD05B500B76E4F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550504AD2049A42C0017C4D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				550504AE2049A4610017C4D4 /* UInt8Extension.swift */,
+				550504B02049AFDE0017C4D4 /* CBCentralManagerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		554B18071FB5DC520081B2C3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +200,7 @@
 		5561BE011FB363840087CB58 /* CoreBluetoothMaster */ = {
 			isa = PBXGroup;
 			children = (
+				550504AD2049A42C0017C4D4 /* Extensions */,
 				554B18081FB5DC710081B2C3 /* Bluetooth */,
 				554B18071FB5DC520081B2C3 /* CoreData */,
 				554B18091FB5DC850081B2C3 /* Screens */,
@@ -376,11 +390,13 @@
 				554B18001FB4B3460081B2C3 /* DeviceManager.swift in Sources */,
 				5518EC441FB47AF200219B72 /* BluetoothManager.swift in Sources */,
 				554B18041FB5B0ED0081B2C3 /* Model.xcdatamodeld in Sources */,
+				550504B12049AFDE0017C4D4 /* CBCentralManagerExtension.swift in Sources */,
 				55E090F81FD82D5E0039E43C /* NotificationService.swift in Sources */,
 				554B180C1FB5E0B70081B2C3 /* DeviceTableViewCell.swift in Sources */,
 				554B17FE1FB49C3A0081B2C3 /* Device.swift in Sources */,
 				5561BE031FB363840087CB58 /* AppDelegate.swift in Sources */,
 				55054A9C1FBA0384001EB915 /* BaseNavigationController.swift in Sources */,
+				550504AF2049A4610017C4D4 /* UInt8Extension.swift in Sources */,
 				5518EC461FB47C2300219B72 /* Constants.swift in Sources */,
 				554B18061FB5B2F80081B2C3 /* CoreDataStack.swift in Sources */,
 				55054A9A1FB9F957001EB915 /* AppTheme.swift in Sources */,

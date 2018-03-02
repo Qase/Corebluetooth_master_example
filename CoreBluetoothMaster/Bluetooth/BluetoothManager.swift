@@ -42,25 +42,17 @@ public class BluetoothManager: NSObject {
         let deviceUUIDs = devices.map { (device) -> UUID? in
             return device.identifierUUID
         }.flatMap { $0 }
-        
-        var peripherals = centralManager.retrievePeripherals(withIdentifiers: deviceUUIDs)
-        
+
+        var peripherals = centralManager.retreiveAllPeripherals(withIdentifiers: deviceUUIDs, orServices: servicesArray)
+        peripherals.append(contentsOf: restoredPeripherals)
+        peripherals = Array(Set(peripherals))
+
         QLog("restoreDevices Devices: \(devices)", onLevel: .info)
         QLog("restoreDevices Device UUIDs: \(deviceUUIDs)", onLevel: .info)
         QLog("restoreDevices peripherals: \(peripherals)", onLevel: .info)
         QLog("restoreDevices restoredPeripherals: \(restoredPeripherals)", onLevel: .info)
-        
-        // FOR TESTING
-        let connectedPeripherals = centralManager.retrieveConnectedPeripherals(withServices: servicesArray)
-        QLog("restoreDevices connectedPeripherals: \(connectedPeripherals)", onLevel: .info)
-        peripherals.append(contentsOf: connectedPeripherals)
-        peripherals.append(contentsOf: restoredPeripherals)
-        peripherals = Array(Set(peripherals))
-        // FOR TESTING END
-        
-        QLog("restoreDevices peripherals Final: \(peripherals)", onLevel: .info)
-        
-        let deviceManagers =  devices.map { (device) -> DeviceManager? in
+
+        self.devices = devices.flatMap { (device) -> DeviceManager? in
             if let peripheral = peripherals.first(where: { (peripheral) -> Bool in
                 peripheral.identifier == device.identifierUUID && device.identifierUUID != nil
             }) {
@@ -69,8 +61,6 @@ public class BluetoothManager: NSObject {
             QLog("UBER ERROR: System forgot peripheral \(device.name ?? "no-name") \(device.identifierUUID?.uuidString ?? "nil")", onLevel: .error)
             return nil
         }
-        
-        self.devices = deviceManagers.flatMap { $0 }
     }
 }
 

@@ -57,33 +57,40 @@ import CoreData
         return UUID(uuidString: identifier)
     }
     
+    func setDistanceTrasholdFrom(_ advertisementData: Data) {
+        var distanceByte: UInt8 = 0
+        (advertisementData as NSData).getBytes(&distanceByte, range: NSRange(location: 2, length: 1))
+        distanceTreshold = Int32(-30 + (Int(distanceByte & 0x1F) * -3))
+    }
+    
+    func setFlagsFrom(_ advertisementData: Data) {
+        var flagsByte: UInt8 = 0
+        (advertisementData as NSData).getBytes(&flagsByte, range: NSRange(location: 3, length: 1))
+        touchRequired = flagsByte.bitSet(nth: 0)
+        touchActive = flagsByte.bitSet(nth: 1)
+        tapRequired = flagsByte.bitSet(nth: 2)
+        isInPairing = flagsByte.bitSet(nth: 3)
+    }
+    
+    func setConfigurationCounterFrom(_ advertisementData: Data) {
+        var counterBytes: UInt16 = 0
+        (advertisementData as NSData).getBytes(&counterBytes, range: NSRange(location: 4, length: 2))
+        configurationCounter = Int32(CFSwapInt16(counterBytes))
+    }
+    
     func updateFrom(_ advertisementData: Data?, rssi:NSNumber = 0) {
-        
         lastScanDate = Date()
+        self.rssi = Int32(truncating: rssi)
+
         guard let advertisementData = advertisementData, advertisementData.count >= 6 else {
             isSimulator = true
             touchRequired = true
             return
         }
         
-        var distanceByte: UInt8 = 0
-        (advertisementData as NSData).getBytes(&distanceByte, range: NSRange(location: 2, length: 1))
-        distanceTreshold = (Int32(-30 + (Int(distanceByte & 0x1F) * -3)))
-        self.rssi = Int32(truncating: rssi)
-        
-        var flagsByte: UInt8 = 0
-        (advertisementData as NSData).getBytes(&flagsByte, range: NSRange(location: 3, length: 1))
-        touchRequired = (flagsByte & 0b00000001) > 0
-        touchActive = (flagsByte & 0b00000010) > 0
-        tapRequired = (flagsByte & 0b00000100) > 0
-        isInPairing = (flagsByte & 0b00001000) > 0
-        
-        var counterBytes: UInt16 = 0
-        (advertisementData as NSData).getBytes(&counterBytes, range: NSRange(location: 4, length: 2))
-        configurationCounter = Int32(CFSwapInt16(counterBytes))
-        
-
-        
+        setDistanceTrasholdFrom(advertisementData)
+        setFlagsFrom(advertisementData)
+        setConfigurationCounterFrom(advertisementData)
     }
 }
 
