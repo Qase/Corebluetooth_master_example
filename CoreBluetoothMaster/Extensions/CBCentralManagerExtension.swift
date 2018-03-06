@@ -17,3 +17,22 @@ extension CBCentralManager {
         return peripherals
     }
 }
+
+extension CBManagerState {
+    var text: String {
+        switch self {
+        case .poweredOff:
+            return "Powered Off"
+        case .poweredOn:
+            return "Powered On"
+        case .resetting:
+            return "Resetting"
+        case .unauthorized:
+            return "Unauthorized"
+        case .unknown:
+            return "Unknown"
+        case .unsupported:
+            return "Unsupported"
+        }
+    }
+}

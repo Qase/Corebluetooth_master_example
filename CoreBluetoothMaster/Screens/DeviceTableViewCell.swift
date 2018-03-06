@@ -24,21 +24,10 @@ class DeviceTableViewCell: UITableViewCell {
             self.infoLabel.text = "RSSI: \(entry?.rssi ?? 999) (\(entry?.lastScanDate?.toFullDateTimeString() ?? ""))"
             self.flagLabel.text = "Flags: \(entry?.flagString ?? "")"
             
-            var statusText = ""
-            if entry?.touchRequired ?? false, entry?.isInPairing ?? false {
-                statusText = "Supports background, in pairing"
-                self.statusLabel.textColor = .red
-            } else if entry?.touchRequired ?? false {
-                statusText = "Supports background"
-                self.statusLabel.textColor = .darkGreen
-            } else {
-                statusText = "Only foreground"
-                self.statusLabel.textColor = .gray
+            if let (text, color) = entry?.statusProperties {
+                self.statusLabel.text = "Status: \(text)"
+                self.statusLabel.textColor = color
             }
-            
-            
-            
-            self.statusLabel.text = "Status: \(statusText)"
         }
     }
     

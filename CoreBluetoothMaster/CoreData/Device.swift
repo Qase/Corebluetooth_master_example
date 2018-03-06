@@ -44,6 +44,15 @@ import CoreData
         return string
     }
     
+    var statusProperties: (String, UIColor) {
+        if touchRequired, isInPairing {
+            return ("Supports background, in pairing", .red)
+        } else if touchRequired {
+            return ("Supports background", .darkGreen)
+        }
+        return ("Only foreground", .gray)
+    }
+
     static func orderedFetchRequest() -> NSFetchRequest<Device> {
         let fetchRequest: NSFetchRequest<Device> = Device.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true), NSSortDescriptor(key: "identifier", ascending: true)]
