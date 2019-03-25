@@ -7,6 +7,28 @@ Proof of Concept app to test behavior of CoreBluetooth on iOS. App contains Stat
 
 Peripheral app from [BLE_Prototype_iOS project](https://github.com/Qase/BLE_Prototype_iOS) can be used as bluetooth device, that this app would automatically scan and connect to.
 
+## iOS Peripheral usage
+
+### States
+* INACTIVE = Launched Application. Peripheral instance is not existing. App may start scanning for Peripherals or retreive Peripheral instance by UUID
+* CONNECTING = Application can start connecting to Peripheral. In this state application can connect within few seconds (if peripheral is in range) or wait for connection infinitelly "waiting connection" *
+* CONNECTED = Peripheral was succesfully connected, so next communication can be started (Service and Characteristic discovering and R/W commands)
+* DISCONNECTING = Peripheral may change into this state if disconnect is inicialized from Application
+* DISCONNECTED = Initial state for peripheral (except of one scenario with App Restoration based on Bluetooth Event)
+
+\* Waiting connection is request made by application to connect to specific Peripheral. iOS handles those request even if application is not running and restores application if neccessary.
+
+On foreground application can communicate with Peripherals without limitations. On Background situation is Much more difficult. App is limited to maximum 10s of computation time since last Bluetooth event.
+
+**Following scenarion can occur on background:**
+
+* System suspends application after 10s of bluetooth inactivity, aplication can resume if bluetooth activity occuress
+* System removes application from memory, but application is restored after Peripheral is connected by iOS (thanks to waiting connections) 
+* System removes application from memory, no waiting connection is created, so application will not work on background.
+
+
+![Peripheral state diagram](https://user-images.githubusercontent.com/5677479/54940619-5c2aaf00-4f2b-11e9-8bfa-ec5c293bb022.png) | 
+
 ## Application behavior on foreground
 
 | Bluetooth powered On | Application state                   |  |  |  | 
@@ -63,3 +85,6 @@ Peripheral app from [BLE_Prototype_iOS project](https://github.com/Qase/BLE_Prot
 | iOS 11 Beta bluetooth state issue                                       | https://forums.developer.apple.com/thread/83852                                                                                                        | 
 | Conditions Under Which Bluetooth State Restoration Will Relaunch An App | https://developer.apple.com/library/content/qa/qa1962/_index.html                                                                                      | 
 | Core Bluetooth Programming Guide                                        | https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html | 
+
+
+
